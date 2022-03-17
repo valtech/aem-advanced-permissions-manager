@@ -1,0 +1,15 @@
+- user_config:
+    - utest-aapm-content:
+      - isMemberOf: aapm-content
+        password: secret
+        description: Test User for pbop default content group
+
+    - utest-aapm-reader:
+      - isMemberOf: aapm-content,aapm-reader
+        password: secret
+        description: Test User for pbop default reader group
+
+    - utest-aapm-restricted:
+      - isMemberOf: aapm-content,aapm-restricted
+        password: secret
+        description: Test User for pbop default restricted group

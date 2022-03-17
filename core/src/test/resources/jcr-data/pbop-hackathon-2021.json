@@ -1,0 +1,2186 @@
+{
+  "jcr:primaryType": "sling:Folder",
+  "jcr:mixinTypes": [
+    "rep:AccessControllable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+  "test-allow": {
+    "jcr:primaryType": "sling:Folder",
+    "jcr:mixinTypes": [
+      "rep:AccessControllable"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+    "Casque_VR2_with_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "jcr:uuid": "b965390e-7700-4f3b-afde-b14bf5597f8d",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+              ":jcr:data": 2300
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:08 GMT+0100",
+              ":jcr:data": 11589
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+              ":jcr:data": 57323
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              ":jcr:data": 46842
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+              ":jcr:data": 46428
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "9.722222328186035",
+          "dam:Physicalwidthininches": "14.583333015441895",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "yes",
+          "tiff:ImageLength": 700,
+          "dam:extracted": "Sat Feb 12 2022 23:46:08 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": 72,
+          "dam:Physicalheightindpi": 72,
+          "dam:Numberofimages": 1,
+          "cq:tags": [
+            "properties:orientation/portrait"
+          ],
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 1050,
+          "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+          "dam:size": 46842,
+          "Iptc4xmpCore:CreatorContactInfo": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        }
+      }
+    },
+    "Casque_VR_with_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "jcr:uuid": "77c516bb-deab-4daf-9b17-64265ce37bb5",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:05 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+              ":jcr:data": 2732
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:03 GMT+0100",
+              ":jcr:data": 8050
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+              ":jcr:data": 26050
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              ":jcr:data": 20119
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+              ":jcr:data": 48661
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "-1.0",
+          "dam:Physicalwidthininches": "-1.0",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "no",
+          "tiff:ImageLength": 600,
+          "dam:extracted": "Sat Feb 12 2022 23:46:03 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": -1,
+          "dam:Physicalheightindpi": -1,
+          "dam:Numberofimages": 1,
+          "cq:tags": [
+            "properties:orientation/portrait"
+          ],
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 600,
+          "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+          "dam:size": 20119,
+          "Iptc4xmpCore:CreatorContactInfo": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        }
+      }
+    },
+    "Casque_VR2_without_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "jcr:uuid": "ef0fdb52-6ce6-41ee-931a-9056cacffc8b",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:15 GMT+0100",
+              ":jcr:data": 2300
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:15 GMT+0100",
+              ":jcr:data": 11589
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:16 GMT+0100",
+              ":jcr:data": 57323
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              ":jcr:data": 46842
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:15 GMT+0100",
+              ":jcr:data": 46428
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "9.722222328186035",
+          "dam:Physicalwidthininches": "14.583333015441895",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "yes",
+          "tiff:ImageLength": 700,
+          "dam:extracted": "Sat Feb 12 2022 23:46:14 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": 72,
+          "dam:Physicalheightindpi": 72,
+          "dam:Numberofimages": 1,
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 1050,
+          "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+          "dam:size": 46842
+        }
+      }
+    },
+    "jcr:content": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:title": "test-allow",
+      "sourcing": "false",
+      "folderThumbnail": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "dam:folderThumbnailPaths": [
+            "/content/dam/aapm-test/test-allow/Casque_VR_with_tag.jpg",
+            "/content/dam/aapm-test/test-allow/Casque_VR_without_tag.jpg",
+            "/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg"
+          ],
+          "height": 240,
+          "jcr:mimeType": "application/octet-stream",
+          "bgcolor": -1,
+          "width": 280,
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:16 GMT+0100",
+          ":jcr:data": 29770
+        }
+      }
+    },
+    "rep:policy": {
+      "jcr:primaryType": "rep:ACL",
+      "deny": {
+        "jcr:primaryType": "rep:DenyACE",
+        "rep:principalName": "aapm-content",
+        "rep:privileges": [
+          "jcr:versionManagement",
+          "jcr:read",
+          "jcr:modifyAccessControl",
+          "jcr:readAccessControl",
+          "rep:write",
+          "crx:replicate",
+          "jcr:lockManagement"
+        ]
+      },
+      "allow1": {
+        "jcr:primaryType": "rep:GrantACE",
+        "rep:principalName": "aapm-reader",
+        "rep:privileges": [
+          "jcr:all"
+        ],
+        "rep:restrictions": {
+          "jcr:primaryType": "rep:Restrictions",
+          "hasPropertyValues": "allow#string$cq:tags==properties:orientation/portrait"
+        }
+      }
+    },
+    "Casque_VR_without_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "jcr:uuid": "33fbff62-a095-41fa-abbf-82746c4030b2",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:06 GMT+0100",
+              ":jcr:data": 2732
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:05 GMT+0100",
+              ":jcr:data": 8050
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:06 GMT+0100",
+              ":jcr:data": 26050
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              ":jcr:data": 20119
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:06 GMT+0100",
+              ":jcr:data": 48661
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "-1.0",
+          "dam:Physicalwidthininches": "-1.0",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "no",
+          "tiff:ImageLength": 600,
+          "dam:extracted": "Sat Feb 12 2022 23:46:05 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": -1,
+          "dam:Physicalheightindpi": -1,
+          "dam:Numberofimages": 1,
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 600,
+          "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+          "dam:size": 20119
+        }
+      }
+    },
+    "subfolder": {
+      "jcr:primaryType": "sling:Folder",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "Casque_VR2_with_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "d031ee4a-fb2a-46b4-960b-1f3407f2d7d9",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 2300
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 11589
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 57323
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 46842
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 46428
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "9.722222328186035",
+            "dam:Physicalwidthininches": "14.583333015441895",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "yes",
+            "tiff:ImageLength": 700,
+            "dam:extracted": "Sat Feb 12 2022 23:46:12 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": 72,
+            "dam:Physicalheightindpi": 72,
+            "dam:Numberofimages": 1,
+            "cq:tags": [
+              "properties:orientation/portrait"
+            ],
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 1050,
+            "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+            "dam:size": 46842,
+            "Iptc4xmpCore:CreatorContactInfo": {
+              "jcr:primaryType": "nt:unstructured"
+            }
+          }
+        }
+      },
+      "Casque_VR_with_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "e764850d-7f31-4541-a327-8a9a8973640a",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+                ":jcr:data": 2732
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+                ":jcr:data": 8050
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:10 GMT+0100",
+                ":jcr:data": 26050
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 20119
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:09 GMT+0100",
+                ":jcr:data": 48661
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "-1.0",
+            "dam:Physicalwidthininches": "-1.0",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "no",
+            "tiff:ImageLength": 600,
+            "dam:extracted": "Sat Feb 12 2022 23:46:09 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": -1,
+            "dam:Physicalheightindpi": -1,
+            "dam:Numberofimages": 1,
+            "cq:tags": [
+              "properties:orientation/portrait"
+            ],
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 600,
+            "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+            "dam:size": 20119,
+            "Iptc4xmpCore:CreatorContactInfo": {
+              "jcr:primaryType": "nt:unstructured"
+            }
+          }
+        }
+      },
+      "Casque_VR2_without_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "a16769b0-3ccb-4b2e-844a-7eb0aee4decf",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:07 GMT+0100",
+                ":jcr:data": 2300
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:07 GMT+0100",
+                ":jcr:data": 11589
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:07 GMT+0100",
+                ":jcr:data": 57323
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 46842
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:07 GMT+0100",
+                ":jcr:data": 46428
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "9.722222328186035",
+            "dam:Physicalwidthininches": "14.583333015441895",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "yes",
+            "tiff:ImageLength": 700,
+            "dam:extracted": "Sat Feb 12 2022 23:46:05 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": 72,
+            "dam:Physicalheightindpi": 72,
+            "dam:Numberofimages": 1,
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 1050,
+            "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+            "dam:size": 46842
+          }
+        }
+      },
+      "jcr:content": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "subfolder",
+        "sourcing": "false",
+        "folderThumbnail": {
+          "jcr:primaryType": "nt:file",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "jcr:content": {
+            "jcr:primaryType": "nt:unstructured",
+            "dam:folderThumbnailPaths": [
+              "/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg",
+              "/content/dam/aapm-test/test-allow/subfolder/Casque_VR_without_tag.jpg",
+              "/content/dam/aapm-test/test-allow/subfolder/Casque_VR2_without_tag.jpg"
+            ],
+            "height": 240,
+            "jcr:mimeType": "application/octet-stream",
+            "bgcolor": -1,
+            "width": 280,
+            "jcr:lastModified": "Sat Feb 12 2022 23:46:28 GMT+0100",
+            ":jcr:data": 32876
+          }
+        }
+      },
+      "Casque_VR_without_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "0bf45bfa-1401-4ae6-92b6-379828e64986",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:16 GMT+0100",
+                ":jcr:data": 2732
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:16 GMT+0100",
+                ":jcr:data": 8050
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+                ":jcr:data": 26050
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 20119
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+                ":jcr:data": 48661
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "-1.0",
+            "dam:Physicalwidthininches": "-1.0",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "no",
+            "tiff:ImageLength": 600,
+            "dam:extracted": "Sat Feb 12 2022 23:46:16 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": -1,
+            "dam:Physicalheightindpi": -1,
+            "dam:Numberofimages": 1,
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 600,
+            "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+            "dam:size": 20119
+          }
+        }
+      }
+    }
+  },
+  "jcr:content": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:title": "aapm-test",
+    "sourcing": "false",
+    "folderThumbnail": {
+      "jcr:primaryType": "nt:file",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "jcr:content": {
+        "jcr:primaryType": "nt:unstructured",
+        "dam:folderThumbnailPaths": [
+          "/content/dam/aapm-test/test-allow/Casque_VR_with_tag.jpg",
+          "/content/dam/aapm-test/test-allow/Casque_VR_without_tag.jpg",
+          "/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg"
+        ],
+        "height": 240,
+        "jcr:mimeType": "application/octet-stream",
+        "bgcolor": -1,
+        "width": 280,
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+        ":jcr:data": 29770
+      }
+    }
+  },
+  "rep:policy": {
+    "jcr:primaryType": "rep:ACL",
+    "allow": {
+      "jcr:primaryType": "rep:GrantACE",
+      "rep:principalName": "aapm-content",
+      "rep:privileges": [
+        "jcr:versionManagement",
+        "jcr:read",
+        "jcr:modifyAccessControl",
+        "jcr:readAccessControl",
+        "rep:write",
+        "crx:replicate",
+        "jcr:lockManagement"
+      ]
+    }
+  },
+  "test-deny": {
+    "jcr:primaryType": "sling:Folder",
+    "jcr:mixinTypes": [
+      "rep:AccessControllable"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+    "Casque_VR2_with_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+      "jcr:uuid": "f1bdffde-0078-48a8-834d-dff170461560",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:08 GMT+0100",
+              ":jcr:data": 2300
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:08 GMT+0100",
+              ":jcr:data": 11589
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:08 GMT+0100",
+              ":jcr:data": 57323
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              ":jcr:data": 46842
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:08 GMT+0100",
+              ":jcr:data": 46428
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "9.722222328186035",
+          "dam:Physicalwidthininches": "14.583333015441895",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "yes",
+          "tiff:ImageLength": 700,
+          "dam:extracted": "Sat Feb 12 2022 23:46:07 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": 72,
+          "dam:Physicalheightindpi": 72,
+          "dam:Numberofimages": 1,
+          "cq:tags": [
+            "properties:orientation/portrait"
+          ],
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 1050,
+          "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+          "dam:size": 46842,
+          "Iptc4xmpCore:CreatorContactInfo": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        }
+      }
+    },
+    "Casque_VR_with_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+      "jcr:uuid": "c0e35fa5-ec09-4125-ac5b-9bb4bd318e89",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:19 GMT+0100",
+              ":jcr:data": 2732
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:19 GMT+0100",
+              ":jcr:data": 8050
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:19 GMT+0100",
+              ":jcr:data": 26050
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              ":jcr:data": 20119
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:19 GMT+0100",
+              ":jcr:data": 48661
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "-1.0",
+          "dam:Physicalwidthininches": "-1.0",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "no",
+          "tiff:ImageLength": 600,
+          "dam:extracted": "Sat Feb 12 2022 23:46:19 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": -1,
+          "dam:Physicalheightindpi": -1,
+          "dam:Numberofimages": 1,
+          "cq:tags": [
+            "properties:orientation/portrait"
+          ],
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 600,
+          "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+          "dam:size": 20119,
+          "Iptc4xmpCore:CreatorContactInfo": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        }
+      }
+    },
+    "Casque_VR2_without_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+      "jcr:uuid": "80ea5fb9-9871-4b38-b10b-3a455104c49e",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:20 GMT+0100",
+              ":jcr:data": 2300
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:20 GMT+0100",
+              ":jcr:data": 11589
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+              ":jcr:data": 57323
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              ":jcr:data": 46842
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:20 GMT+0100",
+              ":jcr:data": 46428
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "9.722222328186035",
+          "dam:Physicalwidthininches": "14.583333015441895",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "yes",
+          "tiff:ImageLength": 700,
+          "dam:extracted": "Sat Feb 12 2022 23:46:19 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": 72,
+          "dam:Physicalheightindpi": 72,
+          "dam:Numberofimages": 1,
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 1050,
+          "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+          "dam:size": 46842
+        }
+      }
+    },
+    "jcr:content": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:title": "test-deny",
+      "sourcing": "false",
+      "folderThumbnail": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "dam:folderThumbnailPaths": [
+            "/content/dam/aapm-test/test-deny/Casque_VR_with_tag.jpg",
+            "/content/dam/aapm-test/test-deny/Casque_VR_without_tag.jpg",
+            "/content/dam/aapm-test/test-deny/subfolder/Casque_VR_without_tag.jpg"
+          ],
+          "height": 240,
+          "jcr:mimeType": "application/octet-stream",
+          "bgcolor": -1,
+          "width": 280,
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:29 GMT+0100",
+          ":jcr:data": 29770
+        }
+      }
+    },
+    "rep:policy": {
+      "jcr:primaryType": "rep:ACL",
+      "deny": {
+        "jcr:primaryType": "rep:DenyACE",
+        "rep:principalName": "aapm-restricted",
+        "rep:privileges": [
+          "jcr:all"
+        ],
+        "rep:restrictions": {
+          "jcr:primaryType": "rep:Restrictions",
+          "hasPropertyValues": "deny#string$cq:tags==properties:orientation/portrait"
+        }
+      }
+    },
+    "Casque_VR_without_tag.jpg": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+      "jcr:uuid": "b049883b-6845-4073-831c-ac868da6a90b",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:lastModifiedBy": "admin",
+        "dam:assetState": "processed",
+        "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+          "cq5dam.thumbnail.48.48.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:18 GMT+0100",
+              ":jcr:data": 2732
+            }
+          },
+          "cq5dam.thumbnail.140.100.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:18 GMT+0100",
+              ":jcr:data": 8050
+            }
+          },
+          "cq5dam.web.1280.1280.jpeg": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:18 GMT+0100",
+              ":jcr:data": 26050
+            }
+          },
+          "original": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:mimeType": "image/jpeg",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              ":jcr:data": 20119
+            }
+          },
+          "cq5dam.thumbnail.319.319.png": {
+            "jcr:primaryType": "nt:file",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "jcr:content": {
+              "jcr:primaryType": "oak:Resource",
+              "jcr:lastModifiedBy": "workflow-process-service",
+              "jcr:mimeType": "image/png",
+              "jcr:lastModified": "Sat Feb 12 2022 23:46:18 GMT+0100",
+              ":jcr:data": 48661
+            }
+          }
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ],
+          "dam:Physicalheightininches": "-1.0",
+          "dam:Physicalwidthininches": "-1.0",
+          "dam:Fileformat": "JPEG",
+          "dam:Progressive": "no",
+          "tiff:ImageLength": 600,
+          "dam:extracted": "Sat Feb 12 2022 23:46:17 GMT+0100",
+          "dc:format": "image/jpeg",
+          "dam:Bitsperpixel": 24,
+          "dam:MIMEtype": "image/jpeg",
+          "dam:Physicalwidthindpi": -1,
+          "dam:Physicalheightindpi": -1,
+          "dam:Numberofimages": 1,
+          "dam:Numberoftextualcomments": 0,
+          "tiff:ImageWidth": 600,
+          "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+          "dam:size": 20119
+        }
+      }
+    },
+    "subfolder": {
+      "jcr:primaryType": "sling:Folder",
+      "jcr:mixinTypes": [
+        "rep:AccessControllable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+      "Casque_VR2_with_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "dee6de19-eda8-4bec-ae68-27599653541a",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:24 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+                ":jcr:data": 2300
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+                ":jcr:data": 11589
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:18 GMT+0100",
+                ":jcr:data": 57323
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 46842
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:17 GMT+0100",
+                ":jcr:data": 46428
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "9.722222328186035",
+            "dam:Physicalwidthininches": "14.583333015441895",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "yes",
+            "tiff:ImageLength": 700,
+            "dam:extracted": "Sat Feb 12 2022 23:46:16 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": 72,
+            "dam:Physicalheightindpi": 72,
+            "dam:Numberofimages": 1,
+            "cq:tags": [
+              "properties:orientation/portrait"
+            ],
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 1050,
+            "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+            "dam:size": 46842,
+            "Iptc4xmpCore:CreatorContactInfo": {
+              "jcr:primaryType": "nt:unstructured"
+            }
+          }
+        }
+      },
+      "sub-subfolder": {
+        "jcr:primaryType": "sling:Folder",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sun Feb 13 2022 00:16:08 GMT+0100",
+        "Casque_VR_with_tag.jpg": {
+          "jcr:primaryType": "dam:Asset",
+          "jcr:mixinTypes": [
+            "mix:referenceable"
+          ],
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+          "jcr:uuid": "c250f368-21f1-4697-a42d-8c3d5840b890",
+          "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "jcr:lastModifiedBy": "admin",
+            "cq:lastModified": "Sun Feb 13 2022 00:17:52 GMT+0100",
+            "dam:assetState": "processed",
+            "jcr:lastModified": "Sat Feb 12 2022 23:46:23 GMT+0100",
+            "cq:lastModifiedBy": "admin",
+            "renditions": {
+              "jcr:primaryType": "nt:folder",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+              "cq5dam.thumbnail.48.48.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                  ":jcr:data": 2732
+                }
+              },
+              "cq5dam.thumbnail.140.100.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                  ":jcr:data": 8050
+                }
+              },
+              "cq5dam.web.1280.1280.jpeg": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/jpeg",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                  ":jcr:data": 26050
+                }
+              },
+              "original": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:mimeType": "image/jpeg",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                  ":jcr:data": 20119
+                }
+              },
+              "cq5dam.thumbnail.319.319.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:17:52 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                  ":jcr:data": 48661
+                }
+              }
+            },
+            "related": {
+              "jcr:primaryType": "nt:unstructured"
+            },
+            "metadata": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:mixinTypes": [
+                "cq:Taggable"
+              ],
+              "dam:Physicalheightininches": "-1.0",
+              "dam:Physicalwidthininches": "-1.0",
+              "dam:Fileformat": "JPEG",
+              "dam:Progressive": "no",
+              "tiff:ImageLength": 600,
+              "dam:extracted": "Sat Feb 12 2022 23:46:13 GMT+0100",
+              "dc:format": "image/jpeg",
+              "dam:Bitsperpixel": 24,
+              "dam:MIMEtype": "image/jpeg",
+              "dam:Physicalwidthindpi": -1,
+              "dam:Physicalheightindpi": -1,
+              "dam:Numberofimages": 1,
+              "cq:tags": [
+                "properties:orientation/portrait"
+              ],
+              "dam:Numberoftextualcomments": 0,
+              "tiff:ImageWidth": 600,
+              "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+              "dam:size": 20119,
+              "Iptc4xmpCore:CreatorContactInfo": {
+                "jcr:primaryType": "nt:unstructured"
+              }
+            }
+          }
+        },
+        "Casque_VR2_without_tag.jpg": {
+          "jcr:primaryType": "dam:Asset",
+          "jcr:mixinTypes": [
+            "mix:referenceable"
+          ],
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+          "jcr:uuid": "7108f3c7-cd07-4e08-b265-756fb2ebed6e",
+          "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "jcr:lastModifiedBy": "admin",
+            "cq:lastModified": "Sun Feb 13 2022 00:16:33 GMT+0100",
+            "dam:assetState": "processed",
+            "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+            "cq:lastModifiedBy": "admin",
+            "renditions": {
+              "jcr:primaryType": "nt:folder",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+              "cq5dam.thumbnail.48.48.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                  ":jcr:data": 2300
+                }
+              },
+              "cq5dam.thumbnail.140.100.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                  ":jcr:data": 11589
+                }
+              },
+              "cq5dam.web.1280.1280.jpeg": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/jpeg",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:05 GMT+0100",
+                  ":jcr:data": 57323
+                }
+              },
+              "original": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:mimeType": "image/jpeg",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+                  ":jcr:data": 46842
+                }
+              },
+              "cq5dam.thumbnail.319.319.png": {
+                "jcr:primaryType": "nt:file",
+                "jcr:createdBy": "admin",
+                "jcr:created": "Sun Feb 13 2022 00:16:32 GMT+0100",
+                "jcr:content": {
+                  "jcr:primaryType": "oak:Resource",
+                  "jcr:lastModifiedBy": "workflow-process-service",
+                  "jcr:mimeType": "image/png",
+                  "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                  ":jcr:data": 46428
+                }
+              }
+            },
+            "related": {
+              "jcr:primaryType": "nt:unstructured"
+            },
+            "metadata": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:mixinTypes": [
+                "cq:Taggable"
+              ],
+              "dam:Physicalheightininches": "9.722222328186035",
+              "dam:Physicalwidthininches": "14.583333015441895",
+              "dam:Fileformat": "JPEG",
+              "dam:Progressive": "yes",
+              "tiff:ImageLength": 700,
+              "dam:extracted": "Sat Feb 12 2022 23:46:03 GMT+0100",
+              "dc:format": "image/jpeg",
+              "dam:Bitsperpixel": 24,
+              "dam:MIMEtype": "image/jpeg",
+              "dam:Physicalwidthindpi": 72,
+              "dam:Physicalheightindpi": 72,
+              "dam:Numberofimages": 1,
+              "dam:Numberoftextualcomments": 0,
+              "tiff:ImageWidth": 1050,
+              "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+              "dam:size": 46842
+            }
+          }
+        },
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:title": "sub-subfolder",
+          "sourcing": "false"
+        }
+      },
+      "Casque_VR_with_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "5d9922d4-240a-433b-ae54-5d0a7330b89b",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:23 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 2732
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 8050
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 26050
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:45:59 GMT+0100",
+                ":jcr:data": 20119
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:13 GMT+0100",
+                ":jcr:data": 48661
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "-1.0",
+            "dam:Physicalwidthininches": "-1.0",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "no",
+            "tiff:ImageLength": 600,
+            "dam:extracted": "Sat Feb 12 2022 23:46:13 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": -1,
+            "dam:Physicalheightindpi": -1,
+            "dam:Numberofimages": 1,
+            "cq:tags": [
+              "properties:orientation/portrait"
+            ],
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 600,
+            "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+            "dam:size": 20119,
+            "Iptc4xmpCore:CreatorContactInfo": {
+              "jcr:primaryType": "nt:unstructured"
+            }
+          }
+        }
+      },
+      "Casque_VR2_without_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+        "jcr:uuid": "8e0e30de-ec9a-4653-b21b-60b8975ac908",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:21 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                ":jcr:data": 2300
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                ":jcr:data": 11589
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:05 GMT+0100",
+                ":jcr:data": 57323
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+                ":jcr:data": 46842
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:04 GMT+0100",
+                ":jcr:data": 46428
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "9.722222328186035",
+            "dam:Physicalwidthininches": "14.583333015441895",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "yes",
+            "tiff:ImageLength": 700,
+            "dam:extracted": "Sat Feb 12 2022 23:46:03 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": 72,
+            "dam:Physicalheightindpi": 72,
+            "dam:Numberofimages": 1,
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 1050,
+            "dam:sha1": "16d60c5b40c197d5b9515c44802650c91fd4a30f",
+            "dam:size": 46842
+          }
+        }
+      },
+      "jcr:content": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "subfolder",
+        "sourcing": "false",
+        "folderThumbnail": {
+          "jcr:primaryType": "nt:file",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Sat Feb 12 2022 23:45:59 GMT+0100",
+          "jcr:content": {
+            "jcr:primaryType": "nt:unstructured",
+            "dam:folderThumbnailPaths": [
+              "/content/dam/aapm-test/test-deny/subfolder/Casque_VR_without_tag.jpg",
+              "/content/dam/aapm-test/test-deny/subfolder/Casque_VR_with_tag.jpg",
+              "/content/dam/aapm-test/test-deny/subfolder/Casque_VR2_without_tag.jpg"
+            ],
+            "height": 240,
+            "jcr:mimeType": "application/octet-stream",
+            "bgcolor": -1,
+            "width": 280,
+            "jcr:lastModified": "Sat Feb 12 2022 23:46:25 GMT+0100",
+            ":jcr:data": 32876
+          }
+        }
+      },
+      "rep:policy": {
+        "jcr:primaryType": "rep:ACL",
+        "allow": {
+          "jcr:primaryType": "rep:GrantACE",
+          "rep:principalName": "aapm-restricted",
+          "rep:privileges": [
+            "jcr:all"
+          ],
+          "rep:restrictions": {
+            "jcr:primaryType": "rep:Restrictions",
+            "hasPropertyValues": "allow#string$cq:tags==properties:orientation/portrait"
+          }
+        }
+      },
+      "Casque_VR_without_tag.jpg": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+          "mix:referenceable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+        "jcr:uuid": "09ad428b-efa6-41d5-ac4c-34cd0196c38a",
+        "jcr:content": {
+          "jcr:primaryType": "dam:AssetContent",
+          "jcr:lastModifiedBy": "admin",
+          "dam:assetState": "processed",
+          "jcr:lastModified": "Sat Feb 12 2022 23:46:23 GMT+0100",
+          "renditions": {
+            "jcr:primaryType": "nt:folder",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+            "cq5dam.thumbnail.48.48.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:11 GMT+0100",
+                ":jcr:data": 2732
+              }
+            },
+            "cq5dam.thumbnail.140.100.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:11 GMT+0100",
+                ":jcr:data": 8050
+              }
+            },
+            "cq5dam.web.1280.1280.jpeg": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:12 GMT+0100",
+                ":jcr:data": 26050
+              }
+            },
+            "original": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/jpeg",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:00 GMT+0100",
+                ":jcr:data": 20119
+              }
+            },
+            "cq5dam.thumbnail.319.319.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Sat Feb 12 2022 23:46:00 GMT+0100",
+              "jcr:content": {
+                "jcr:primaryType": "oak:Resource",
+                "jcr:lastModifiedBy": "workflow-process-service",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Sat Feb 12 2022 23:46:11 GMT+0100",
+                ":jcr:data": 48661
+              }
+            }
+          },
+          "related": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "metadata": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable"
+            ],
+            "dam:Physicalheightininches": "-1.0",
+            "dam:Physicalwidthininches": "-1.0",
+            "dam:Fileformat": "JPEG",
+            "dam:Progressive": "no",
+            "tiff:ImageLength": 600,
+            "dam:extracted": "Sat Feb 12 2022 23:46:11 GMT+0100",
+            "dc:format": "image/jpeg",
+            "dam:Bitsperpixel": 24,
+            "dam:MIMEtype": "image/jpeg",
+            "dam:Physicalwidthindpi": -1,
+            "dam:Physicalheightindpi": -1,
+            "dam:Numberofimages": 1,
+            "dam:Numberoftextualcomments": 0,
+            "tiff:ImageWidth": 600,
+            "dam:sha1": "7e5647d7e3bebad735e76b150ba3475afa5ba298",
+            "dam:size": 20119
+          }
+        }
+      }
+    }
+  }
+}

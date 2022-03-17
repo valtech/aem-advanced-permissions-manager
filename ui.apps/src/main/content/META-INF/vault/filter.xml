@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aapm/clientlibs"/>
+    <filter root="/apps/aapm/components"/>
+    <filter root="/apps/aapm/i18n"/>
+    <filter root="/apps/aapm/pbop"/>
+</workspaceFilter>

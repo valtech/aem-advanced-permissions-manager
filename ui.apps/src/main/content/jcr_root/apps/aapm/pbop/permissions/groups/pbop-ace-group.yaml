@@ -1,0 +1,50 @@
+- group_config:
+  - aapm-content:
+    - name: 'PBOP default content user'
+      isMemberOf: dam-users
+      path: pbop
+
+  - aapm-reader:
+    - name: 'PBOP reader '
+      isMemberOf:
+      path: pbop
+
+  - aapm-restricted:
+    - name: 'PBOP restricted '
+      isMemberOf:
+      path: pbop
+
+- ace_config:
+
+  - aapm-content:
+    - path: '/content/dam/*'
+      permission: allow
+      actions: read,modify,create,delete,acl_read,acl_edit,replicate
+
+  - aapm-content:
+      - path: /content/dam/aapm-test/test-allow
+        permission: deny
+        actions: read,modify,create,delete,acl_read,acl_edit,replicate
+
+  - aapm-reader:
+    - path: /content/dam/aapm-test/test-allow
+      permission: allow
+      actions:
+      privileges: jcr:all
+      restrictions:
+        hasPropertyValues: allow#string$cq:tags==properties:orientation/portrait
+
+  - aapm-restricted:
+    - path: /content/dam/aapm-test/test-deny
+      permission: deny
+      actions:
+      privileges: jcr:all
+      restrictions:
+        hasPropertyValues: deny#string$cq:tags==properties:orientation/portrait
+
+    - path: /content/dam/aapm-test/test-deny/subfolder
+      permission: allow
+      actions:
+      privileges: jcr:all
+      restrictions:
+        hasPropertyValues: allow#string$cq:tags==properties:orientation/portrait
