@@ -42,6 +42,11 @@ Or to deploy only a single content package, run in the sub-module directory (i.e
 
     mvn clean install -PautoInstallPackage
 
+## How to create a release without user/group and content packages
+
+    mvn clean package -PwithoutPreinstalledExamples
+
+
 ## SonarQube
 - You need to install a SonarQube server
     - for example you can use : ```https://github.com/ahmed-musallam/sonarqube-aem```
