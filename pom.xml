@@ -21,7 +21,7 @@
     <groupId>com.valtech.aapm</groupId>
     <artifactId>aapm</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-beta2</version>
     <name>AEM Advanced Permissions Manager</name>
     <description>Allow to handle assets permissions thanks to custom restriction rules</description>
 
