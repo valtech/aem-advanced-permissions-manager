@@ -13,7 +13,7 @@ AVS requires Java 11, Maven >= 3.6.0 and AEM Cloud.
 
 | AEM Version | AAPM        |
 |-------------|-------------|
-| Cloud       | 0.0.1-beta1 |
+| Cloud       | 0.0.1-beta2 |
 | 6.5         | TO BE DONE  |
 
 # Deploying
