@@ -44,7 +44,11 @@ Or to deploy only a single content package, run in the sub-module directory (i.e
 
 ## How to create a release without user/group and content packages
 
-    mvn clean package -PwithoutPreinstalledExamples
+    mvn clean package -PwithoutPreinstalledExamples -DskipTests
+
+## How to create an "example package" with only preinstalled examples of users/groups and content packages (does not include the release)
+    
+    mvn clean package -PonlyPreinstalledExamples -DskipTests (maybe needed to install it twice or 3 times, there are sometimes some problems during actools installation)
 
 
 ## SonarQube

@@ -242,6 +242,90 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>onlyPreinstalledExamples</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- ====================================================================== -->
+                    <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
+                    <!-- ====================================================================== -->
+                    <plugin>
+                        <groupId>org.apache.jackrabbit</groupId>
+                        <artifactId>filevault-package-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <finalName>aapm.examples-${project.version}</finalName>
+                            <group>Valtech</group>
+                            <packageType>container</packageType>
+                            <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
+                            <skipSubPackageValidation>true</skipSubPackageValidation>
+                            <embeddeds>
+                                <embedded>
+                                    <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+                                    <artifactId>accesscontroltool-package</artifactId>
+                                    <classifier>cloud</classifier>
+                                    <target>/apps/aapm-packages/content/install</target>
+                                </embedded>
+                                <embedded>
+                                    <groupId>com.valtech.aapm</groupId>
+                                    <artifactId>aapm.ui.apps</artifactId>
+                                    <type>zip</type>
+                                    <target>/apps/aapm-packages/application/install</target>
+                                </embedded>
+                                <embedded>
+                                    <groupId>com.valtech.aapm</groupId>
+                                    <artifactId>aapm.ui.content</artifactId>
+                                    <type>zip</type>
+                                    <target>/apps/aapm-packages/content/install</target>
+                                </embedded>
+                                <embedded>
+                                    <groupId>com.valtech.aapm</groupId>
+                                    <artifactId>aapm.ui.config</artifactId>
+                                    <type>zip</type>
+                                    <target>/apps/aapm-packages/application/install</target>
+                                </embedded>
+                            </embeddeds>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <failOnError>true</failOnError>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>auto-clean</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>aemanalyser-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>aem-analyser</id>
+                                <goals>
+                                    <goal>project-analyse</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <!-- ====================================================================== -->
