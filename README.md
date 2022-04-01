@@ -26,7 +26,7 @@ There are 2 ways to deploy :
 
     
 ### Deploy as maven dependency (not yet implemented):
-#### With predefined installed examples
+#### With just the code
     <dependency>
         <groupId>com.valtech.aapm</groupId>
         <artifactId>aapm.all-x.x.x</artifactId>
@@ -35,11 +35,11 @@ There are 2 ways to deploy :
     </dependency>
  or
 
-#### Without predefined installed examples
+#### With just predefined examples (configs, users, groups etc...) and WITHOUT the code
 
     <dependency>
         <groupId>com.valtech.aapm</groupId>
-        <artifactId>aapm.core-x.x.x</artifactId>
+        <artifactId>aapm.examples-x.x.x</artifactId>
         <version>LATEST</version>
         <type>jar</type>
     </dependency>

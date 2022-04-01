@@ -31,10 +31,10 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aapm.all</artifactId>
+    <artifactId>aapm.examples</artifactId>
     <packaging>content-package</packaging>
-    <name>AEM Advanced Permissions Manager - All</name>
-    <description>All content package for AEM Advanced Permissions Manager</description>
+    <name>AEM Advanced Permissions Manager - Examples</name>
+    <description>Content package examples for AEM Advanced Permissions Manager</description>
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -48,15 +48,35 @@
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
-                <configuration combine.self="override">
+                <configuration>
+                    <finalName>aapm.examples-${project.version}</finalName>
                     <group>Valtech</group>
                     <packageType>container</packageType>
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
                         <embedded>
+                            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+                            <artifactId>accesscontroltool-package</artifactId>
+                            <classifier>cloud</classifier>
+                            <target>/apps/aapm-packages/content/install</target>
+                        </embedded>
+                        <embedded>
                             <groupId>com.valtech.aapm</groupId>
-                            <artifactId>aapm.core</artifactId>
+                            <artifactId>aapm.ui.apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/aapm-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.valtech.aapm</groupId>
+                            <artifactId>aapm.ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/aapm-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.valtech.aapm</groupId>
+                            <artifactId>aapm.ui.config</artifactId>
+                            <type>zip</type>
                             <target>/apps/aapm-packages/application/install</target>
                         </embedded>
                     </embeddeds>

@@ -11,6 +11,7 @@ The main parts of the template are:
 * ui.tests: Selenium based UI tests
 * all: a single content package that embeds all the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
+* examples: this module is used to build content packages (without the code) containing predefined users, groups, configs "ready to play"
 
 
 ## How to build/deploy
