@@ -59,7 +59,7 @@
                             <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
                             <artifactId>accesscontroltool-package</artifactId>
                             <classifier>cloud</classifier>
-                            <target>/apps/aapm-packages/content/install</target>
+                            <target>/apps/aapm-packages/application/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
