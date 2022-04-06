@@ -73,6 +73,9 @@
         <aemanalyser.version>1.1.8</aemanalyser.version>
         <componentGroupName>AEM Advanced Permissions Manager</componentGroupName>
         <aggregate.report.dir>/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
+        
+        <sonar.organization>valtech-aapm</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <build>
