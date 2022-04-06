@@ -23,7 +23,7 @@
     <parent>
         <groupId>com.valtech.aapm</groupId>
         <artifactId>aapm</artifactId>
-        <version>0.0.1-beta2</version>
+        <version>0.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
