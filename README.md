@@ -13,39 +13,25 @@ AVS requires Java 11, Maven >= 3.6.0 and AEM Cloud.
 
 | AEM Version | AAPM        |
 |-------------|-------------|
-| Cloud       | 0.0.1-beta2 |
-| 6.5         | TO BE DONE  |
+| Cloud       | 0.9.x       |
+| 6.5         |             |
 
 # Deploying
 There are 2 ways to deploy :
-- From sources 
-  - See our [developer zone](docs/developers.md)
 - From zip/jar files
   - if you want to install predefined assets, users and groups to test quickly => install aapm.all-x.x.x.zip
   - if you want only the feature => install aapm.core-x.x.x.jar
+- From sources 
+  - See our [developer zone](docs/developers.md)
 
     
-### Deploy as maven dependency (not yet implemented):
-#### With just the code
+### Deploy as Maven dependency:
     <dependency>
         <groupId>com.valtech.aapm</groupId>
-        <artifactId>aapm.all-x.x.x</artifactId>
+        <artifactId>aapm.all</artifactId>
         <version>LATEST</version>
         <type>zip</type>
     </dependency>
- or
-
-#### With just predefined examples (configs, users, groups etc...) and WITHOUT the code
-
-    <dependency>
-        <groupId>com.valtech.aapm</groupId>
-        <artifactId>aapm.examples-x.x.x</artifactId>
-        <version>LATEST</version>
-        <type>jar</type>
-    </dependency>
-
-
-
 
 
 ## Uninstallation
@@ -96,7 +82,8 @@ where :
 - <binary_operator> = "==", ">=", "<=","<",">" (*currently only "==" works well*)
 - <property_value> = the value the property has to be equal to match the restriction
 
-#### Examples :
+#### Examples
+You can install the aapm.examples package for the following examples.
 *Be careful : the permission type (allow or deny) has to be the same than the "restriction type". See examples below.*
 
 ##### Example 1 :
@@ -156,7 +143,7 @@ the assets not tagged with orientation/portrait
  - From restriction tab, go to permission tab (Tools/Security/Permissions) and select the existing group and edit
 ![edit existing ACE](illustrations/aapm-see-and-modify-restriction.png "edit exisiting ace")
 
-##Result according to yaml file definition
+## Result according to yaml file definition
 
     # Test 1
     1 - Login as admin user
