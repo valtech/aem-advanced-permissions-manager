@@ -18,6 +18,15 @@
  */
 package com.valtech.aapm.restrictions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.jcr.Session;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.plugins.memory.PropertyStates;
@@ -28,19 +37,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import javax.jcr.Session;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 @ExtendWith(MockitoExtension.class)
 class PropertyValueRestrictionProviderTest {
 
-    
+
     private RestrictionImpl restriction;
 
 
@@ -51,7 +51,7 @@ class PropertyValueRestrictionProviderTest {
 
 
     @Test
-    public void getPattern_returns_empty_pattern_restriction_when_no_restriction_on_targeted_path(){
+    public void getPattern_returns_empty_pattern_restriction_when_no_restriction_on_targeted_path() {
 
         PropertyValueRestrictionProvider testedProvider = new PropertyValueRestrictionProvider();
         HashSet<Restriction> noRestriction = new HashSet<>();
@@ -62,7 +62,7 @@ class PropertyValueRestrictionProviderTest {
     }
 
     @Test
-    public void getPattern_nominal_case(){
+    public void getPattern_nominal_case() {
         Session session = null;
         Type<String> type = Type.STRING;
         String oakPath = "/my/path";
@@ -74,7 +74,8 @@ class PropertyValueRestrictionProviderTest {
         PropertyValueRestrictionProvider testedProvider = new PropertyValueRestrictionProvider();
         HashSet<Restriction> restrictions = new HashSet<>();
         restrictions.add(restriction);
-        HasPropertyValuesPattern expectedRestrictionPattern = new HasPropertyValuesPattern(matchedConditionPropertyValue, oakPath, session);
+        HasPropertyValuesPattern expectedRestrictionPattern =
+                new HasPropertyValuesPattern(matchedConditionPropertyValue, oakPath, session);
 
 
         RestrictionPattern computedRestrictionPattern = testedProvider.getPattern(oakPath, restrictions);
@@ -84,7 +85,7 @@ class PropertyValueRestrictionProviderTest {
     }
 
     @Test
-    public void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one(){
+    public void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one() {
         Session session = null;
         Type<Iterable<String>> type = Type.STRINGS;
         String oakPath = "/my/path";
@@ -108,5 +109,5 @@ class PropertyValueRestrictionProviderTest {
 
     }
 
-     // : create Unit tests for "public RestrictionPattern getPattern(String oakPath, Tree tree)"
+    // : create Unit tests for "public RestrictionPattern getPattern(String oakPath, Tree tree)"
 }
