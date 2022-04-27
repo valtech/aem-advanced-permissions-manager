@@ -17,10 +17,10 @@ AVS requires Java 11, Maven >= 3.6.0 and AEM Cloud.
 | 6.5         |             |
 
 # Deploying
-There are 2 ways to deploy :
-- From zip/jar files
-  - if you want to install predefined assets, users and groups to test quickly => install aapm.all-x.x.x.zip
-  - if you want only the feature => install aapm.core-x.x.x.jar
+There are 2 ways to deploy:
+- From zip files
+  - Code: aapm.all-x.x.x.jar
+  - Examples including predefined assets, users and groups to test quickly: aapm.examples-x.x.x.zip
 - From sources 
   - See our [developer zone](docs/developers.md)
 
@@ -49,14 +49,14 @@ There are 2 ways to deploy :
 - /etc/packages/Netcentric
 
 ### Deleting users and groups (in /security/users.html)
-#### Users  :
+#### Users
 
 - utest-aapm-content
 - utest-aapm-reader
 - utest-aapm-restricted
 
 
-#### Delete following groups :
+#### Delete following groups
 
 - aapm-content
 - aapm-reader
@@ -69,11 +69,11 @@ User with the appropriate rights, can define restrictions.
 
 ### Build a restriction
 
-A restriction is written like this :
+A restriction is written like this:
 
 - hasPropertyValues: <restriction_type>#<unary_operator><property_type>$<property_name><binary_operator><property_value>
 
-where :
+where:
 
 - <restriction_type> = "allow" or "deny"
 - <unary_operator> = "!" or "" (negation or not)
@@ -84,23 +84,23 @@ where :
 
 #### Examples
 You can install the aapm.examples package for the following examples.
-*Be careful : the permission type (allow or deny) has to be the same than the "restriction type". See examples below.*
+*Be careful: the permission type (allow or deny) has to be the same than the "restriction type". See examples below.*
 
-##### Example 1 :
+##### Example 1
 - Permission type = "*deny*"
 - hasPropertyValues: *deny*#string$cq:tags==properties:orientation/portrait
 - For a restriction "R1" defined by the above line applying to a user "UserA", R1 will prevent UserA to access to all
   the assets tagged with orientation/portrait
 
-##### Example 2 :
+##### Example 2
 - Permission type = "*allow*"
 - You can "cancel" the restriction of example 2 in a subfolder by adding following line
 - hasPropertyValues: *allow*#string$cq:tags==properties:orientation/portrait
 
-##### Example 3 :
+##### Example 3
 - Permission type = "*deny*"
-- You can use a "negate operator" :
-- hasPropertyValues: *deny*#string$!cq:tags==properties:orientation/portrait
+- You can use a "negate operator":
+    - hasPropertyValues: *deny*#string$!cq:tags==properties:orientation/portrait
 - For a restriction "R2" defined by the above line applying to a user "UserA", R2 will prevent UserA to access to all
 the assets not tagged with orientation/portrait
 
@@ -110,9 +110,9 @@ the assets not tagged with orientation/portrait
  2- Click "Add ACE" and follow instructions 
 ![user can add new restriction through this tab](illustrations/aapm-add-new-restriction.png "add ace")
 ### Restriction through yaml file
-  Yaml file location : apps/aapm/pbop/permissions/groups/pbop-ace-group.yaml
+  Yaml file location: apps/aapm/pbop/permissions/groups/pbop-ace-group.yaml
 
-    # Test 1 : with user that has permission to see the all inside test-allow folder
+    # Test 1: with user that has permission to see the all inside test-allow folder
     - aapm-default-reader:
     - path: /content/dam/aapm-test/test-allow
       permission: allow
@@ -121,7 +121,7 @@ the assets not tagged with orientation/portrait
       restrictions:
         hasPropertyValues: allow#string$cq:tags==properties:orientation/portrait
 
-    # Test 2 : with user that has NO permission on test-deny but with permission in test-deny/subfolder
+    # Test 2: with user that has NO permission on test-deny but with permission in test-deny/subfolder
     - path: /content/dam/aapm-test/test-deny
       permission: deny
       actions:
@@ -150,7 +150,7 @@ the assets not tagged with orientation/portrait
     2 - Navigate to /content/dam/aapm-test/test-allow folder
     4 - User should see all assets and sub folder
     3 - Unpersonnate as utest-aapm-reader (apps/aapm/pbop/permissions/users/pbop-ace-user.yaml)
-    4 - Result : user will only see all assets with the tag properties:orientation/portrait
+    4 - Result: user will only see all assets with the tag properties:orientation/portrait
   ![Login with admin user account, user see all content](illustrations/aapm-admin-to-reader.png "Login with admin user account")
   ![on /test-allow folder, we apply restriction to apply allow permission only if asset has tag protrait](illustrations/aapm-reader.png "Impersonate as utest-aapm-reader")
 
@@ -159,7 +159,7 @@ the assets not tagged with orientation/portrait
     2 - Navigate to /content/dam/aapm-test/test-deny
     3 - User should see all assets and sub folder
     4 - Unpersonnate as utest-aapm-restricted (apps/aapm/pbop/permissions/users/pbop-ace-user.yaml)
-    5 - Result : user should see only assets without the tag properties:orientation/portrait in "test-deny" and all asssets in "/subfolder" (because for the group "aapm-restricted" deny access for assets with tag "properties:orientation/portrait" has been overidden by an allow access for "subfolder")
+    5 - Result: user should see only assets without the tag properties:orientation/portrait in "test-deny" and all asssets in "/subfolder" (because for the group "aapm-restricted" deny access for assets with tag "properties:orientation/portrait" has been overidden by an allow access for "subfolder")
   ![admin user see all content](illustrations/aapm-admin-to-restricted.png "Connect as admin user")
   ![admin user see all content](illustrations/aapm-assets-in-test-deny.png "Display utest-aapm-restricted assets for 'test-deny'")
   ![admin user see all content](illustrations/aapm-assets-in-subfolder.png "Display utest-aapm-restricted assets for 'subfolder")
