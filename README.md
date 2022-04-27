@@ -8,7 +8,7 @@ This mechanism can be used to restrict a standard ACL permission for any asset.
 
 # Requirements
 
-AAPM requires Java 11, Maven >= 3.6.0 and AEM Cloud.
+AAPM requires Java 11, Maven >= 3.6.0 and AEM Cloud/6.5.
 
 
 | AEM Version | AAPM        |
