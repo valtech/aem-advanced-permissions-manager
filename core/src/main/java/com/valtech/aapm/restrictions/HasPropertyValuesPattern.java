@@ -27,7 +27,6 @@ import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
 import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 
-import javax.jcr.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -38,8 +37,6 @@ import java.util.Objects;
 public class HasPropertyValuesPattern implements RestrictionPattern {
 
     private final String originalTree;
-    private final Session session;
-
     private final String name;
     private final String values;
     private final String[] status;
@@ -53,8 +50,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
     private final boolean negate;
 
-    HasPropertyValuesPattern(String propertyValues,String originalTree,Session session) {
-        this.session = session;
+    HasPropertyValuesPattern(String propertyValues,String originalTree) {
         this.originalTree = originalTree;
 
         // allow#property=test
@@ -87,9 +83,9 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
     }
 
-    static RestrictionPattern create(PropertyState stringProperty,String originalTree,Session session) {
+    static RestrictionPattern create(PropertyState stringProperty,String originalTree) {
         if (stringProperty.count() == 1) {
-            return new HasPropertyValuesPattern(stringProperty.getValue(Type.STRING),originalTree,session);
+            return new HasPropertyValuesPattern(stringProperty.getValue(Type.STRING),originalTree);
         } else {
             return RestrictionPattern.EMPTY;
         }

@@ -23,7 +23,6 @@ import static junitx.framework.Assert.assertFalse;
 
 import java.util.Set;
 
-import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
 
 import org.apache.jackrabbit.JcrConstants;
@@ -58,15 +57,6 @@ public class HasPropertyValuesPatternTest {
         contentRepository = myOak.createContentRepository();
         adminSession = contentRepository.login(new SimpleCredentials("admin", "admin".toCharArray()), "test");
         root = adminSession.getLatestRoot();
-
-        // Repository repo = new Jcr(myOak).createRepository();
-        // Session session = repo.login(new SimpleCredentials("admin", "admin".toCharArray()),
-        // "test");
-
-        // Repository repo = new Jcr(myOak).createRepository();
-
-        // repo.login()
-
     }
 
     // region State of art
@@ -80,11 +70,10 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -100,11 +89,10 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -120,11 +108,10 @@ public class HasPropertyValuesPatternTest {
                                                                                          // deny
                                                                                          // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -141,10 +128,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -163,10 +149,9 @@ public class HasPropertyValuesPatternTest {
                                                                                          // deny
                                                                                          // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -187,10 +172,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -211,10 +195,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers==75";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -235,10 +218,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers==72";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -257,10 +239,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers==72";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -279,10 +260,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#date$myDate==2022-03-01'T'20:07:11.000000";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -296,10 +276,9 @@ public class HasPropertyValuesPatternTest {
         Tree notAnAsset = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers==72";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(notAnAsset, whatever);
 
@@ -320,10 +299,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers>72";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -344,10 +322,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers>72";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -365,10 +342,9 @@ public class HasPropertyValuesPatternTest {
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait"; // negate
                                                                                         // deny rule
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -385,10 +361,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumberProperty==4";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -405,10 +380,9 @@ public class HasPropertyValuesPatternTest {
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumberProperty<4";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -426,10 +400,9 @@ public class HasPropertyValuesPatternTest {
         String propertyValues = "deny#date$myDate==2022-12-08T10:05:57.5946+08:00"; // negate deny
                                                                                     // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(tree, whatever);
 
@@ -454,10 +427,9 @@ public class HasPropertyValuesPatternTest {
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(asset, whatever);
 
@@ -483,10 +455,9 @@ public class HasPropertyValuesPatternTest {
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow/subfolder";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(subfolderContainingAssets, whatever);
 
@@ -510,10 +481,9 @@ public class HasPropertyValuesPatternTest {
         // Tree tree = root.getTree("/content/dam/pbop-hackathon-2021/test-allow");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/pbop-hackathon-2021/test-allow/subfolder";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(subfolderContainingAssets, whatever);
 
@@ -539,10 +509,9 @@ public class HasPropertyValuesPatternTest {
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(testedTree, whatever);
 
@@ -569,10 +538,9 @@ public class HasPropertyValuesPatternTest {
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(testedTree, whatever);
 
@@ -599,10 +567,9 @@ public class HasPropertyValuesPatternTest {
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(testedTree, whatever);
 
@@ -629,10 +596,9 @@ public class HasPropertyValuesPatternTest {
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
-        Session session = null;
         PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches(testedTree, whatever);
 
@@ -644,16 +610,14 @@ public class HasPropertyValuesPatternTest {
 
     @Test
     public void equals_returns_false_if_at_least_one_internal_field_is_different() {
-        Session session = null;
-
         String propertyValues = "allow#string$myProperty==toto";
         String originalTree = "/content/dam/pbop-hackathon-2021/test-allow";
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         String propertyValues2 = "deny#string$myProperty==toto";
         String originalTree2 = "/content/dam/pbop-hackathon-2021/test-allow";
         HasPropertyValuesPattern hasPropertyValuesPattern2 =
-                new HasPropertyValuesPattern(propertyValues2, originalTree2, session);
+                new HasPropertyValuesPattern(propertyValues2, originalTree2);
 
         assertFalse(hasPropertyValuesPattern.equals(hasPropertyValuesPattern2));
 
@@ -665,10 +629,8 @@ public class HasPropertyValuesPatternTest {
     public void matches_returns_false() {
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
-        PropertyState whatever = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches();
 
@@ -679,9 +641,8 @@ public class HasPropertyValuesPatternTest {
     public void matches_returns_false_for_whatever_path() {
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
 
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         boolean doesItMatch = hasPropertyValuesPattern.matches("/whatever/path");
 
@@ -692,8 +653,7 @@ public class HasPropertyValuesPatternTest {
     public void equals_returns_true_if_same_reference() {
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         assertTrue(hasPropertyValuesPattern.equals(hasPropertyValuesPattern));
     }
@@ -702,8 +662,7 @@ public class HasPropertyValuesPatternTest {
     public void equals_returns_false_for_objects_of_different_types() {
         String propertyValues = "deny#string$cq:tags==properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
-        Session session = null;
-        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree, session);
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
         String nothingSpecial = "test";
 
         assertFalse(hasPropertyValuesPattern.equals(nothingSpecial));
