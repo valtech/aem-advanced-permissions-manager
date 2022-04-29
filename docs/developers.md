@@ -71,3 +71,25 @@ This show-cases classic unit testing of the code contained in the bundle. To
 test, execute:
 
     mvn clean test
+
+## Tips
+### Using a session for the algorithm "match"
+If you want to use a session to get some data in the tree of the oak repository, adding the following in the class PropertyValueRestrictionProvider :
+
+    @Reference(fieldOption = FieldOption.REPLACE,
+    cardinality = ReferenceCardinality.OPTIONAL,
+    policyOption = ReferencePolicyOption.GREEDY)
+    private ResourceResolverFactory rrf;
+
+Now to get a session use :
+
+    Session session = null;
+    if (this.rrf != null && this.rrf.getThreadResourceResolver() != null) {
+        session = this.rrf.getThreadResourceResolver().adaptTo(Session.class);
+    }
+
+and use it the methods
+    
+    public RestrictionPattern getPattern(...)
+
+/ !! \ WARNING : use the session carefully, the "match" algorithm must be very fast because it will be used for a lot of paths !!!
