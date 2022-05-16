@@ -25,8 +25,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.jcr.Session;
-
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.plugins.memory.PropertyStates;
@@ -63,7 +61,6 @@ class PropertyValueRestrictionProviderTest {
 
     @Test
     public void getPattern_nominal_case() {
-        Session session = null;
         Type<String> type = Type.STRING;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";
@@ -75,7 +72,7 @@ class PropertyValueRestrictionProviderTest {
         HashSet<Restriction> restrictions = new HashSet<>();
         restrictions.add(restriction);
         HasPropertyValuesPattern expectedRestrictionPattern =
-                new HasPropertyValuesPattern(matchedConditionPropertyValue, oakPath, session);
+                new HasPropertyValuesPattern(matchedConditionPropertyValue, oakPath);
 
 
         RestrictionPattern computedRestrictionPattern = testedProvider.getPattern(oakPath, restrictions);
@@ -86,7 +83,6 @@ class PropertyValueRestrictionProviderTest {
 
     @Test
     public void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one() {
-        Session session = null;
         Type<Iterable<String>> type = Type.STRINGS;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";

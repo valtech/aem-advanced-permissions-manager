@@ -22,21 +22,14 @@ import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.*;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.*;
 
-import javax.jcr.Session;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
 @Component(service = RestrictionProvider.class, immediate=true)
 public class PropertyValueRestrictionProvider extends AbstractRestrictionProvider {
-
-    @Reference(fieldOption = FieldOption.REPLACE,
-            cardinality = ReferenceCardinality.OPTIONAL,
-            policyOption = ReferencePolicyOption.GREEDY)
-    private ResourceResolverFactory rrf;
 
     private static final String HAS_PROPERTY_VALUES = "hasPropertyValues";
 
@@ -58,14 +51,10 @@ public class PropertyValueRestrictionProvider extends AbstractRestrictionProvide
         tree (path) = /jcr:system/rep:permissionStore/crx.default/aapm-restricted/626084805/0
      **/
     public RestrictionPattern getPattern(String oakPath, Tree tree) {
-        Session session = null;
-        if (this.rrf != null && this.rrf.getThreadResourceResolver() != null) {
-            session = this.rrf.getThreadResourceResolver().adaptTo(Session.class);
-        }
         if (oakPath != null) {
             PropertyState property = tree.getProperty(HAS_PROPERTY_VALUES);
             if (property != null) {
-                return HasPropertyValuesPattern.create(property,oakPath,session);
+                return HasPropertyValuesPattern.create(property,oakPath);
             }
         }
         return RestrictionPattern.EMPTY;
@@ -73,15 +62,11 @@ public class PropertyValueRestrictionProvider extends AbstractRestrictionProvide
 
     @Override
     public RestrictionPattern getPattern(String oakPath, Set<Restriction> restrictions) {
-        Session session = null;
-        if (this.rrf != null && this.rrf.getThreadResourceResolver() != null) {
-            session = this.rrf.getThreadResourceResolver().adaptTo(Session.class);
-        }
         if (oakPath != null) {
             for (Restriction r : restrictions) {
                 String name = r.getDefinition().getName();
                 if (HAS_PROPERTY_VALUES.equals(name)) {
-                    return HasPropertyValuesPattern.create(r.getProperty(),oakPath,session);
+                    return HasPropertyValuesPattern.create(r.getProperty(),oakPath);
                 }
             }
         }
