@@ -37,10 +37,11 @@ There are 2 ways to deploy:
 ## Uninstallation
 
 ### Removing following paths
-- /conf/aapm
+- /conf/valtech/aapm-examples
 - /content/dam/aapm-test
-- /apps/aapm
-- /apps/aapm-packages
+- /apps/valtech/aapm
+- /apps/valtech/aapm-examples
+- /apps/valtech/aapm-examples-packages
 - /apps/netcentric/actool/config
 - /apps/netcentric/actool/config.dev
 - /apps/netcentric/actool/config.stage
