@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/valtech/aapm-examples" mode="merge"/>
+    <filter root="/content/aapm-examples" mode="merge"/>
+    <filter root="/content/dam/aapm-examples/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/aapm-examples" mode="merge"/>
+
+    <filter root="/content/dam/aapm-test" mode="merge"/>
+
+</workspaceFilter>

@@ -55,7 +55,7 @@
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>aapm.core</artifactId>
-                            <target>/apps/aapm-packages/application/install</target>
+                            <target>/apps/valtech/aapm/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>

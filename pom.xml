@@ -48,10 +48,10 @@
     <modules>
         <module>all</module>
         <module>core</module>
-        <module>ui.apps</module>
-        <module>ui.apps.structure</module>
-        <module>ui.config</module>
-        <module>ui.content</module>
+        <module>examples.ui.apps</module>
+        <module>examples.ui.apps.structure</module>
+        <module>examples.ui.config</module>
+        <module>examples.ui.content</module>
         <module>examples</module>
     </modules>
 

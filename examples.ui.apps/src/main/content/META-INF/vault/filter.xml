@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/valtech/aapm-examples/clientlibs"/>
+    <filter root="/apps/valtech/aapm-examples/components"/>
+    <filter root="/apps/valtech/aapm-examples/i18n"/>
+    <filter root="/apps/valtech/aapm-examples/pbop"/>
+</workspaceFilter>
