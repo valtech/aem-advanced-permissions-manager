@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aapm.examples.ui.config</artifactId>
+    <artifactId>examples.aapm.ui.config</artifactId>
     <packaging>content-package</packaging>
     <name>AEM Advanced Permissions Manager - Examples - UI config</name>
     <description>UI config package for AEM Advanced Permissions Manager</description>
@@ -55,7 +55,7 @@
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.valtech.aapm</groupId>
-                            <artifactId>aapm.ui.apps.structure</artifactId>
+                            <artifactId>examples.aapm.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                 </configuration>
@@ -70,7 +70,7 @@
     <dependencies>
         <dependency>
             <groupId>com.valtech.aapm</groupId>
-            <artifactId>aapm.ui.apps.structure</artifactId>
+            <artifactId>examples.aapm.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

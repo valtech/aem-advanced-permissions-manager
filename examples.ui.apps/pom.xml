@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aapm.ui.apps</artifactId>
+    <artifactId>examples.aapm.ui.apps</artifactId>
     <packaging>content-package</packaging>
     <name>AEM Advanced Permissions Manager - Examples - UI apps</name>
     <description>UI apps package for AEM Advanced Permissions Manager</description>
@@ -52,12 +52,12 @@
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <group>Valtech</group>
-                    <name>aapm.ui.apps</name>
+                    <name>examples.aapm.ui.apps</name>
                     <packageType>application</packageType>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.valtech.aapm</groupId>
-                            <artifactId>aapm.ui.apps.structure</artifactId>
+                            <artifactId>examples.aapm.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <dependencies>
@@ -137,7 +137,7 @@
 
         <dependency>
             <groupId>com.valtech.aapm</groupId>
-            <artifactId>aapm.ui.apps.structure</artifactId>
+            <artifactId>examples.aapm.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

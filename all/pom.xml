@@ -169,19 +169,19 @@
         </dependency>
         <dependency>
             <groupId>com.valtech.aapm</groupId>
-            <artifactId>aapm.ui.apps</artifactId>
+            <artifactId>examples.aapm.ui.apps</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>com.valtech.aapm</groupId>
-            <artifactId>aapm.ui.content</artifactId>
+            <artifactId>examples.aapm.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>com.valtech.aapm</groupId>
-            <artifactId>aapm.ui.config</artifactId>
+            <artifactId>examples.aapm.ui.config</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

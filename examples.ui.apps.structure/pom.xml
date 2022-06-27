@@ -15,7 +15,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aapm.ui.apps.structure</artifactId>
+    <artifactId>examples.aapm.ui.apps.structure</artifactId>
     <packaging>content-package</packaging>
     <name>AEM Advanced Permissions Manager - Examples - Repository Structure Package</name>
     <description>
