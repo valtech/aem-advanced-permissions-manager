@@ -41,7 +41,6 @@ There are 2 ways to deploy:
 - /content/dam/aapm-test
 - /apps/valtech/aapm
 - /apps/valtech/aapm-examples
-- /apps/valtech/aapm-examples-packages
 - /apps/netcentric/actool/config
 - /apps/netcentric/actool/config.dev
 - /apps/netcentric/actool/config.stage

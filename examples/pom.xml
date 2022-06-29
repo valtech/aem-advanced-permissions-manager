@@ -57,25 +57,25 @@
                             <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
                             <artifactId>accesscontroltool-package</artifactId>
                             <classifier>cloud</classifier>
-                            <target>/apps/valtech/aapm-examples-packages/install</target>
+                            <target>/apps/valtech/aapm-examples/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.apps</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples-packages/install</target>
+                            <target>/apps/valtech/aapm-examples/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.content</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples-packages/install</target>
+                            <target>/apps/valtech/aapm-examples/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.config</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples-packages/install</target>
+                            <target>/apps/valtech/aapm-examples/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
