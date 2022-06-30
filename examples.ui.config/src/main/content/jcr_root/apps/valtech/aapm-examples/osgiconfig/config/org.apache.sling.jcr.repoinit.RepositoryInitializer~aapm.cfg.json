@@ -1,0 +1,10 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/aapm-test",
+        "create path (nt:unstructured) /content/dam/aapm-test/jcr:content",
+        "set properties on /content/dam/aapm-test/jcr:content",
+        "set cq:conf{String} to /conf/valtech/aapm-examples",
+        "set jcr:title{String} to \"AEM Advanced Permissions Manager\"",
+        "end"
+    ]
+}
