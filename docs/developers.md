@@ -1,17 +1,14 @@
 ## Modules
 
-The main parts of the template are:
+The main parts of the project are:
 
-* core: Java bundle containing all core functionality like OSGi service provider, RestrictionPattern, as well as component-related Java code such as servlets or request filters.
-* it.tests: Java based integration tests
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
-* ui.content: contains sample content using the components from the ui.apps
-* ui.config: contains runmode specific OSGi configs for the project
-* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* ui.tests: Selenium based UI tests
-* all: a single content package that embeds all the compiled modules (bundles and content packages) including any vendor dependencies
-* analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
-* examples: this module is used to build content packages (without the code) containing predefined users, groups, configs "ready to play"
+* all: a single content package that embeds all the compiled modules (bundles and content packages)
+* core: Java bundle containing all core functionality like RestrictionPattern
+* examples: this module contains content packages containing predefined users, groups, configs
+* examples.ui.apps: contains the /apps parts of the examples
+* examples.ui.content: contains sample content using the components from the examples.ui.apps
+* examples.ui.config: contains runmode specific OSGi configs for the examples
+
 
 
 ## How to build/deploy
@@ -39,57 +36,16 @@ Or to deploy only the bundle to the author, run
 
     mvn clean install -PautoInstallBundle
 
-Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
+Or to deploy only a single content package, run in the sub-module directory (i.e `examples.ui.apps`)
 
     mvn clean install -PautoInstallPackage
 
-## How to create a release without user/group and content packages
-
-    mvn clean package -PwithoutPreinstalledExamples -DskipTests
-
-## How to create an "example package" with only preinstalled examples of users/groups and content packages (does not include the release)
-    
-    mvn clean package -PonlyPreinstalledExamples -DskipTests (maybe needed to install it twice or 3 times, there are sometimes some problems during actools installation)
-
 
 ## SonarQube
-- You need to install a SonarQube server
-    - for example you can use : ```https://github.com/ahmed-musallam/sonarqube-aem```
-
-- Then go to ```core``` project
-
-- Launch : ```mvn clean install; mvn sonar:sonar```
-
-- Reporting files are thus generated under ```/core/target/site/jacoco-aggregate/jacoco.xml```
-
-- SonarQube is installed by default on port 9000  (```http://localhost:9000```)
-    - to get another port set ```sonar.host.url```
+Sonarqube results can be seen on https://sonarcloud.io/project/overview?id=aapm.
 
 ### Unit tests
 
-This show-cases classic unit testing of the code contained in the bundle. To
-test, execute:
+To test, execute:
 
     mvn clean test
-
-## Tips
-### Using a session for the algorithm "match"
-If you want to use a session to get some data in the tree of the oak repository, adding the following in the class PropertyValueRestrictionProvider :
-
-    @Reference(fieldOption = FieldOption.REPLACE,
-    cardinality = ReferenceCardinality.OPTIONAL,
-    policyOption = ReferencePolicyOption.GREEDY)
-    private ResourceResolverFactory rrf;
-
-Now to get a session use :
-
-    Session session = null;
-    if (this.rrf != null && this.rrf.getThreadResourceResolver() != null) {
-        session = this.rrf.getThreadResourceResolver().adaptTo(Session.class);
-    }
-
-and use it the methods
-    
-    public RestrictionPattern getPattern(...)
-
-/ !! \ WARNING : use the session carefully, the "match" algorithm must be very fast because it will be used for a lot of paths !!!
