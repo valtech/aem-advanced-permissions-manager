@@ -45,8 +45,8 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private final String propertyType;
     private static final String DENY = "deny";
 
-    List<String> operators = List.of("DOUBLE_EQUALS", "GREATER_THAN_EQUALS", "LESS_THAN_EQUALS", "GREATER_THEN", "LESS_THEN");
-    private String operator = "DOUBLE_EQUALS";
+    List<String> operators = List.of("_EQUALS_", "_GREATER_THAN_EQUALS_", "_LESS_THAN_EQUALS_", "_GREATER_THEN_", "_LESS_THEN_");
+    private String operator = "_EQUALS_";
 
     private final boolean negate;
 
@@ -207,11 +207,11 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     }
 
     private boolean compareWithOperator(int compareValue) {
-        return ("DOUBLE_EQUALS".equals(operator) && compareValue == 0) ||
-                ("LESS_THAN_EQUALS".equals(operator) && (compareValue <= 0)) ||
-                ("GREATER_THAN_EQUALS".equals(operator) && (compareValue >= 0)) ||
-                ("GREATER_THEN".equals(operator) && (compareValue > 0)) ||
-                ("LESS_THEN".equals(operator) && (compareValue < 0));
+        return ("_EQUALS_".equals(operator) && compareValue == 0) ||
+                ("_LESS_THAN_EQUALS_".equals(operator) && (compareValue <= 0)) ||
+                ("_GREATER_THAN_EQUALS_".equals(operator) && (compareValue >= 0)) ||
+                ("_GREATER_THEN_".equals(operator) && (compareValue > 0)) ||
+                ("_LESS_THEN_".equals(operator) && (compareValue < 0));
     }
 
     private boolean isMatch(Tree tree) {

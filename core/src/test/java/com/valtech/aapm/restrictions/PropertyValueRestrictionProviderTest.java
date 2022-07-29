@@ -60,7 +60,7 @@ class PropertyValueRestrictionProviderTest {
         Type<String> type = Type.STRING;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";
-        String matchedConditionPropertyValue = "deny#string$cq:tagsDOUBLE_EQUALSproperties:orientation/portrait";
+        String matchedConditionPropertyValue = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
         boolean isMandatory = false;
         PropertyState property = createProperty(name, matchedConditionPropertyValue, type);
         restriction = new RestrictionImpl(property, isMandatory);
@@ -81,8 +81,8 @@ class PropertyValueRestrictionProviderTest {
         Type<Iterable<String>> type = Type.STRINGS;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";
-        String value1 = "deny#string$cq:tagsDOUBLE_EQUALSproperties:orientation/portrait";
-        String value2 = "allow#string$cq:tagsDOUBLE_EQUALSproperties:orientation/landscape";
+        String value1 = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String value2 = "allow#string$cq:tags_EQUALS_properties:orientation/landscape";
         List<String> values = new ArrayList<String>();
         values.add(value1);
         values.add(value2);
