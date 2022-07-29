@@ -45,32 +45,31 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private final String propertyType;
     private static final String DENY = "deny";
 
-    List<String> operatorList = List.of("==", ">=", "<=","<",">");
-    private String operator = "==";
+    List<String> operators = List.of("_EQUALS_", "_GREATER_THAN_EQUALS_", "_LESS_THAN_EQUALS_", "_GREATER_THEN_", "_LESS_THEN_");
+    private String operator = "_EQUALS_";
 
     private final boolean negate;
 
-    HasPropertyValuesPattern(String propertyValues,String originalTree) {
+    HasPropertyValuesPattern(String propertyValues, String originalTree) {
         this.originalTree = originalTree;
 
         // allow#property=test
         // allow#date$property=01/10/2021
 
-        permissionType = propertyValues.split("#")[0] ;
+        permissionType = propertyValues.split("#")[0];
         String propertyValuesWithoutPermissionType = propertyValues.split("#")[1];
 
         propertyType = propertyValuesWithoutPermissionType.split("\\$")[0];
         String propertyValuesWithoutPropertyType = propertyValuesWithoutPermissionType.split("\\$")[1];
-
 
         if (propertyValuesWithoutPropertyType.startsWith("!")) {
             negate = true;
         } else {
             negate = false;
         }
-        for(int i = 0;i<operatorList.size();i++){
-            if(propertyValuesWithoutPropertyType.contains(operatorList.get(i))){
-                operator = operatorList.get(i);
+        for (int i = 0; i < operators.size(); i++) {
+            if (propertyValuesWithoutPropertyType.contains(operators.get(i))) {
+                operator = operators.get(i);
                 break;
             }
         }
@@ -79,22 +78,24 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         values = propertyValuesWithoutPropertyType.split(operator)[1];
         status = values.split(",");
         statusList = Arrays.asList(status);
-
-
     }
 
-    static RestrictionPattern create(PropertyState stringProperty,String originalTree) {
+    static RestrictionPattern create(PropertyState stringProperty, String originalTree) {
         if (stringProperty.count() == 1) {
-            return new HasPropertyValuesPattern(stringProperty.getValue(Type.STRING),originalTree);
+            return new HasPropertyValuesPattern(stringProperty.getValue(Type.STRING), originalTree);
         } else {
             return RestrictionPattern.EMPTY;
         }
     }
 
-    private Tree getParentAssetNode(Tree tree){
+    private Tree getParentAssetNode(Tree tree) {
         Tree parent = tree.getParent();
-        if(isTooHighLevelInHierarchy(parent)) return null;
-        if(isAsset(parent)) return parent;
+        if (isTooHighLevelInHierarchy(parent)) {
+            return null;
+        }
+        if (isAsset(parent)) {
+            return parent;
+        }
         return getParentAssetNode(parent);
     }
 
@@ -102,8 +103,10 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         return originalTree.contains(parent.getPath());
     }
 
-    private Tree getFirstParentOfTypeFolderOrAsset(Tree tree){
-        if(!isFolder(tree) && !isAsset(tree)) return getFirstParentOfTypeFolderOrAsset(tree.getParent());
+    private Tree getFirstParentOfTypeFolderOrAsset(Tree tree) {
+        if (!isFolder(tree) && !isAsset(tree)) {
+            return getFirstParentOfTypeFolderOrAsset(tree.getParent());
+        }
         return tree;
     }
 
@@ -114,46 +117,54 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
     private boolean isFolder(Tree tree) {
         String type = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING);
-        return JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equalsIgnoreCase(type) 
-                || JcrConstants.NT_FOLDER.equalsIgnoreCase(type) 
-                || JcrResourceConstants.NT_SLING_FOLDER.equalsIgnoreCase(type) ;
+        return JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equalsIgnoreCase(type)
+                || JcrConstants.NT_FOLDER.equalsIgnoreCase(type)
+                || JcrResourceConstants.NT_SLING_FOLDER.equalsIgnoreCase(type);
     }
 
-
-    private boolean checkTree(Tree tree){
-        if (hasMetadataFolder(tree)) return isMatch(tree);
+    private boolean checkTree(Tree tree) {
+        if (hasMetadataFolder(tree)) {
+            return isMatch(tree);
+        }
         return false;
     }
 
     private boolean hasMetadataFolder(Tree tree) {
         return tree.hasChild(JcrConstants.JCR_CONTENT)
                 && tree.getChild(JcrConstants.JCR_CONTENT)
-                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
+                       .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
     }
 
     @Override
     public boolean matches(Tree tree, PropertyState propertyState) {
-        if(isRuleToApplyADeny())    return denyMatch(tree);
-        if(isRuleToApplyAnAllow())  return allowMatch(tree);
+        if (isRuleToApplyADeny()) {
+            return denyMatch(tree);
+        }
+        if (isRuleToApplyAnAllow()) {
+            return allowMatch(tree);
+        }
         return false;
     }
 
     private boolean allowMatch(Tree tree) {
         Tree firstParentOfTypeFolderOrAsset = getFirstParentOfTypeFolderOrAsset(tree);
         Tree firstParentOfTypeAsset = getParentAssetNode(firstParentOfTypeFolderOrAsset);
-        if(exists(firstParentOfTypeAsset)) // There is a parent asset handled by restriction rule
+        if (exists(firstParentOfTypeAsset)) // There is a parent asset handled by restriction rule
+        {
             return negate != checkTree(firstParentOfTypeAsset);
+        }
 
-        if(isFolder(firstParentOfTypeFolderOrAsset)){
-            for(Tree currentTree : firstParentOfTypeFolderOrAsset.getChildren()){
-                if(checkTree(currentTree)){
+        if (isFolder(firstParentOfTypeFolderOrAsset)) {
+            for (Tree currentTree : firstParentOfTypeFolderOrAsset.getChildren()) {
+                if (checkTree(currentTree)) {
                     return true;
                 }
             }
         }
 
-        if(!isFolder(firstParentOfTypeFolderOrAsset))
+        if (!isFolder(firstParentOfTypeFolderOrAsset)) {
             return negate != checkTree(firstParentOfTypeFolderOrAsset);
+        }
 
         return false;
     }
@@ -180,34 +191,40 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         return false;
     }
 
-    private boolean denyMatch(Tree tree){
+    private boolean denyMatch(Tree tree) {
         // configured property name found on underlying jcr:content node has precedence
         if (hasMetadataAsChild(tree)) {
             boolean match = isMatch(tree);
             return negate != match;
         }
-        return false ;
+        return false;
     }
 
     private boolean hasMetadataAsChild(Tree tree) {
         return tree.hasChild(JcrConstants.JCR_CONTENT)
                 && tree.getChild(JcrConstants.JCR_CONTENT)
-                    .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
+                       .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
     }
 
-    private boolean compareWithOperator(int compareValue){
-        return  ("==".equals(operator) && compareValue == 0) ||
-                ("<=".equals(operator) && (compareValue <= 0)) ||
-                (">=".equals(operator) && (compareValue >= 0)) ||
-                (">".equals(operator) && (compareValue > 0)) ||
-                ("<".equals(operator) && (compareValue < 0));
+    private boolean compareWithOperator(int compareValue) {
+        return ("_EQUALS_".equals(operator) && compareValue == 0) ||
+                ("_LESS_THAN_EQUALS_".equals(operator) && (compareValue <= 0)) ||
+                ("_GREATER_THAN_EQUALS_".equals(operator) && (compareValue >= 0)) ||
+                ("_GREATER_THEN_".equals(operator) && (compareValue > 0)) ||
+                ("_LESS_THEN_".equals(operator) && (compareValue < 0));
     }
 
     private boolean isMatch(Tree tree) {
         Tree metadataNode = tree.getChild(JcrConstants.JCR_CONTENT).getChild(DamConstants.ACTIVITY_TYPE_METADATA);
-        if(!isRestrictionPropertyExisting(metadataNode))        return false;
-        if(isMetadataPropertyAMultipleValuesOne(metadataNode))  return doesItMatchForMultipleProperty(metadataNode);
-        if(isMetadataPropertyASingleValueOne(metadataNode))     return doesItMatchForSingleProperty(metadataNode);
+        if (!isRestrictionPropertyExisting(metadataNode)) {
+            return false;
+        }
+        if (isMetadataPropertyAMultipleValuesOne(metadataNode)) {
+            return doesItMatchForMultipleProperty(metadataNode);
+        }
+        if (isMetadataPropertyASingleValueOne(metadataNode)) {
+            return doesItMatchForSingleProperty(metadataNode);
+        }
         return false;
     }
 
@@ -226,11 +243,17 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean doesItMatchForMultipleProperty(Tree metadataNode) {
         boolean match = false;
         List<String> propertyValues = Iterables.toList(metadataNode.getProperty(name).getValue(Type.STRINGS));
-        for(int i=0 ; i < propertyValues.size() && !match ; i++){
+        for (int i = 0; i < propertyValues.size() && !match; i++) {
             String value = propertyValues.get(i);
-            if(isPropertyTypeAString()) match = doesItMatchForAStringProperty(value);
-            if(isPropertyTypeAnInt())   match = doesItMatchForAnIntProperty(value);
-            if(isPropertyTypeADate())   match = doesItMatchForADateProperty(value);
+            if (isPropertyTypeAString()) {
+                match = doesItMatchForAStringProperty(value);
+            }
+            if (isPropertyTypeAnInt()) {
+                match = doesItMatchForAnIntProperty(value);
+            }
+            if (isPropertyTypeADate()) {
+                match = doesItMatchForADateProperty(value);
+            }
         }
         return match;
     }
@@ -240,7 +263,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
             Date dateProperty = format.parse(value);
             Date valueProperty = new Date();
-            if(!"today".equalsIgnoreCase(statusList.get(0))){
+            if (!"today".equalsIgnoreCase(statusList.get(0))) {
                 valueProperty = format.parse(statusList.get(0));
             }
 
@@ -261,7 +284,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
             int compare = valueProperty.compareTo(intProperty);
             return compareWithOperator(compare);
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             // Because it is not an int => not possible to compare => false
         }
         return false;
@@ -302,7 +325,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         HasPropertyValuesPattern c = (HasPropertyValuesPattern) o;
 
         // Compare the data members and return accordingly
-        return  arePermissionTypesEqual(c) &&
+        return arePermissionTypesEqual(c) &&
                 areNegateOperatorsEqual(c) &&
                 areNamesEqual(c) &&
                 areStatusListsEqual(c) &&
@@ -342,18 +365,18 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     @Override
     public int hashCode() {
         return Objects.hash
-                (
-                    permissionType,
-                    negate,
-                    name,
-                    statusList,
-                    originalTree,
-                    propertyType,
-                    operator
-                );
+                              (
+                                      permissionType,
+                                      negate,
+                                      name,
+                                      statusList,
+                                      originalTree,
+                                      propertyType,
+                                      operator
+                              );
     }
 
-    private boolean areTheyBothNull(Object o1, Object o2){
+    private boolean areTheyBothNull(Object o1, Object o2) {
         return o1 == null && o2 == null;
     }
 }

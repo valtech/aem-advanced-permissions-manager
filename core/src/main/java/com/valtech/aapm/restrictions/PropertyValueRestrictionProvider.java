@@ -28,7 +28,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
-@Component(service = RestrictionProvider.class, immediate=true)
+@Component(service = RestrictionProvider.class, immediate = true)
 public class PropertyValueRestrictionProvider extends AbstractRestrictionProvider {
 
     private static final String HAS_PROPERTY_VALUES = "hasPropertyValues";
@@ -47,14 +47,14 @@ public class PropertyValueRestrictionProvider extends AbstractRestrictionProvide
     @Override
     /**
      Example :
-        oakPath = /content/dam/aapm-test/test-deny
-        tree (path) = /jcr:system/rep:permissionStore/crx.default/aapm-restricted/626084805/0
+     oakPath = /content/dam/aapm-test/test-deny
+     tree (path) = /jcr:system/rep:permissionStore/crx.default/aapm-restricted/626084805/0
      **/
     public RestrictionPattern getPattern(String oakPath, Tree tree) {
         if (oakPath != null) {
             PropertyState property = tree.getProperty(HAS_PROPERTY_VALUES);
             if (property != null) {
-                return HasPropertyValuesPattern.create(property,oakPath);
+                return HasPropertyValuesPattern.create(property, oakPath);
             }
         }
         return RestrictionPattern.EMPTY;
@@ -66,12 +66,11 @@ public class PropertyValueRestrictionProvider extends AbstractRestrictionProvide
             for (Restriction r : restrictions) {
                 String name = r.getDefinition().getName();
                 if (HAS_PROPERTY_VALUES.equals(name)) {
-                    return HasPropertyValuesPattern.create(r.getProperty(),oakPath);
+                    return HasPropertyValuesPattern.create(r.getProperty(), oakPath);
                 }
             }
         }
         return RestrictionPattern.EMPTY;
     }
-
 
 }

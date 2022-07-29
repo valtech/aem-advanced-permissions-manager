@@ -43,17 +43,16 @@ import com.day.cq.dam.api.DamConstants;
 import com.google.common.collect.Sets;
 
 @Disabled
-public class HasPropertyValuesPatternBugsToFixTest {
+class HasPropertyValuesPatternBugsToFixTest {
 
-    public static final String DEFAULT_WORKSPACE_NAME = "test";
+    static final String DEFAULT_WORKSPACE_NAME = "test";
     private ContentRepository contentRepository;
     protected ContentSession adminSession;
     protected Root root;
     protected SecurityProvider securityProvider;
 
-
     @BeforeEach
-    public void before() throws Exception {
+    void before() throws Exception {
         Oak myOak = new Oak().with(DEFAULT_WORKSPACE_NAME).with(new OpenSecurityProvider());
         contentRepository = myOak.createContentRepository();
         adminSession = contentRepository.login(new SimpleCredentials("admin", "admin".toCharArray()), "test");
@@ -65,16 +64,15 @@ public class HasPropertyValuesPatternBugsToFixTest {
     @Test
     // it is a BUG. Currently it returns true. Problem from "name =
     // propertyValuesWithoutPropertyType.split(operator)[0];"
-    public void matches_returns_false_when_negate_deny_rule_on_asset_path_which_owns_single_tag_defined_in_restriction() {
+    void matches_returns_false_when_negate_deny_rule_on_asset_path_which_owns_single_tag_defined_in_restriction() {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("cq:tags", "properties:orientation/portrait", Type.STRING);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("cq:tags", "properties:orientation/portrait", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$!cq:tags==properties:orientation/portrait"; // negate
-                                                                                         // deny
-                                                                                         // rule
+        // deny
+        // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -89,22 +87,21 @@ public class HasPropertyValuesPatternBugsToFixTest {
     // == 1 or myProperty > 1 does not work
 
     @Test
-    // it is a BUG. Currently it returns true. Problem from "name =
-    // propertyValuesWithoutPropertyType.split(operator)[0];"
-    public void matches_returns_false_when_negate_deny_rule_on_asset_path_which_owns_multiple_tags_defined_in_restriction() {
+        // it is a BUG. Currently it returns true. Problem from "name =
+        // propertyValuesWithoutPropertyType.split(operator)[0];"
+    void matches_returns_false_when_negate_deny_rule_on_asset_path_which_owns_multiple_tags_defined_in_restriction() {
         Set<String> tags = Sets.newHashSet();
         tags.add("properties:orientation/portrait");
         tags.add("properties:orientation/landscape");
 
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("cq:tags", tags, Type.STRINGS);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("cq:tags", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#string$!cq:tags==properties:orientation/portrait"; // negate
-                                                                                         // deny
-                                                                                         // rule
+        // deny
+        // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -116,13 +113,12 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // it is a BUG. Currently it returns true. Problem comes from type handling is not done for a
-    // property of type "single"
-    public void matches_returns_true_when_deny_strict_bigger_rule_on_asset_path_which_owns_single_tag_of_type_int_defined_in_restriction() {
+        // it is a BUG. Currently it returns true. Problem comes from type handling is not done for a
+        // property of type "single"
+    void matches_returns_true_when_deny_strict_bigger_rule_on_asset_path_which_owns_single_tag_of_type_int_defined_in_restriction() {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("myNumberProperty", "567", Type.STRING);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("myNumberProperty", "567", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumberProperty>4";
@@ -137,17 +133,16 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // it is a BUG. Currently it returns false.
-    public void matches_returns_true_when_deny_strict_lower_rule_on_asset_path_which_owns_multiple_tags_of_type_int_defined_in_restriction() {
+        // it is a BUG. Currently it returns false.
+    void matches_returns_true_when_deny_strict_lower_rule_on_asset_path_which_owns_multiple_tags_of_type_int_defined_in_restriction() {
         // Set<String> tags = Sets.newHashSet();
         ArrayList<String> tags = new ArrayList<>();
         tags.add("14");
         tags.add("13");
 
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("myNumbers", tags, Type.STRINGS);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers<72";
@@ -162,16 +157,15 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // it is a bug. Currently it returns true
-    public void matches_returns_false_when_deny_strict_lower_rule_is_false_on_asset_path_which_owns_multiple_tags_of_type_int_defined_in_restriction() {
+        // it is a bug. Currently it returns true
+    void matches_returns_false_when_deny_strict_lower_rule_is_false_on_asset_path_which_owns_multiple_tags_of_type_int_defined_in_restriction() {
         Set<String> tags = Sets.newHashSet();
         tags.add("5678");
         tags.add("90");
 
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("myNumbers", tags, Type.STRINGS);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#int$myNumbers<72";
@@ -186,16 +180,15 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // it is a bug. Currently it returns false
-    public void matches_returns_true_when_deny_strict_bigger_rule_on_asset_path_which_owns_single_tag_of_type_date_defined_in_restriction() {
+        // it is a bug. Currently it returns false
+    void matches_returns_true_when_deny_strict_bigger_rule_on_asset_path_which_owns_single_tag_of_type_date_defined_in_restriction() {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny")
-                .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
-                .setProperty("myDate", "2021-05-03T10:09:54.1111+02:00", Type.STRING);
-
+            .addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA)
+            .setProperty("myDate", "2021-05-03T10:09:54.1111+02:00", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
         String propertyValues = "deny#date$myDate>2022-12-08T10:05:57.5946+08:00"; // negate deny
-                                                                                   // rule
+        // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -207,14 +200,13 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // : it is a bug : currently it returns true
-    public void matches_returns_false_on_asset_path_when_allow_inequality_rule_defined_on_direct_parent_folder_of_this_asset() {
+        // : it is a bug : currently it returns true
+    void matches_returns_false_on_asset_path_when_allow_inequality_rule_defined_on_direct_parent_folder_of_this_asset() {
         Tree asset = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-allow")
-                .addChild("Casque_VR_with_tag.jpg");
+                         .addChild("Casque_VR_with_tag.jpg");
 
         asset.setProperty(JcrConstants.JCR_PRIMARYTYPE, DamConstants.NT_DAM_ASSET);
         asset.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "toto");
-
 
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
         String propertyValues = "allow#string$!myProperty==toto";
@@ -229,17 +221,17 @@ public class HasPropertyValuesPatternBugsToFixTest {
     }
 
     @Test
-    // : this is a bug. A recursive child which has an asset which matches => folder should appear.
-    // Currently it returns false
-    public void matches_returns_true_on_folder_path_when_allow_equality_rule_defined_on_at_least_one_recursive_child_of_this_folder() {
+        // : this is a bug. A recursive child which has an asset which matches => folder should appear.
+        // Currently it returns false
+    void matches_returns_true_on_folder_path_when_allow_equality_rule_defined_on_at_least_one_recursive_child_of_this_folder() {
         Tree subfolderContainingGrandSonAsset = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test")
-                .addChild("test-allow").addChild("subfolder");
+                                                    .addChild("test-allow").addChild("subfolder");
         subfolderContainingGrandSonAsset.setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FOLDER);
 
         Tree firstSubFolder = subfolderContainingGrandSonAsset.addChild("firstSubFolder"); // This
-                                                                                           // folder
-                                                                                           // is
-                                                                                           // empty
+        // folder
+        // is
+        // empty
         subfolderContainingGrandSonAsset.setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FOLDER);
 
         Tree secondSubFolder = subfolderContainingGrandSonAsset.addChild("secondSubFolder");
@@ -253,7 +245,6 @@ public class HasPropertyValuesPatternBugsToFixTest {
         Tree asset2 = secondSubFolder.addChild("Casque2_VR_with_tag.jpg");
         asset2.setProperty(JcrConstants.JCR_PRIMARYTYPE, DamConstants.NT_DAM_ASSET);
         asset2.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "toto");
-
 
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
         String propertyValues = "allow#string$myProperty==toto";
