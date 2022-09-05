@@ -68,7 +68,7 @@ class HasPropertyValuesPatternTest {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny");
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -85,7 +85,7 @@ class HasPropertyValuesPatternTest {
             .addChild(JcrConstants.JCR_CONTENT);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -101,7 +101,7 @@ class HasPropertyValuesPatternTest {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny");
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$!cq:tags_EQUALS_properties:orientation/portrait"; // negate
+        String propertyValues = "deny_string_!cq:tags_EQUALS_properties:orientation/portrait"; // negate
         // deny
         // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
@@ -121,7 +121,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("aPropertyNotUsefulToApplyRestriction", "whatever");
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -139,7 +139,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("aPropertyNotUsefulToApplyRestriction", "whatever");
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$!cq:tags_EQUALS_properties:orientation/portrait"; // negate
+        String propertyValues = "deny_string_!cq:tags_EQUALS_properties:orientation/portrait"; // negate
         // deny
         // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
@@ -163,7 +163,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("cq:tags", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -185,7 +185,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_EQUALS_75";
+        String propertyValues = "deny_int_myNumbers_EQUALS_75";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -207,7 +207,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_EQUALS_72";
+        String propertyValues = "deny_int_myNumbers_EQUALS_72";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -228,7 +228,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_EQUALS_72";
+        String propertyValues = "deny_int_myNumbers_EQUALS_72";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -249,7 +249,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myDate", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#date$myDate_EQUALS_2022-03-01'T'20:07:11.000000";
+        String propertyValues = "deny_date_myDate_EQUALS_2022-03-01'T'20:07:11.000000";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -265,7 +265,7 @@ class HasPropertyValuesPatternTest {
         root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-deny");
 
         Tree notAnAsset = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_EQUALS_72";
+        String propertyValues = "deny_int_myNumbers_EQUALS_72";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -287,7 +287,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_GREATER_THEN_72";
+        String propertyValues = "deny_int_myNumbers_GREATER_THEN_72";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -309,7 +309,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumbers", tags, Type.STRINGS);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumbers_GREATER_THEN_72";
+        String propertyValues = "deny_int_myNumbers_GREATER_THEN_72";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -327,7 +327,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("cq:tags", "properties:orientation/portrait", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait"; // negate
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait"; // negate
         // deny rule
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
@@ -346,7 +346,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumberProperty", "4", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumberProperty_EQUALS_4";
+        String propertyValues = "deny_int_myNumberProperty_EQUALS_4";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -364,7 +364,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myNumberProperty", "567", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#int$myNumberProperty_LESS_THEN_4";
+        String propertyValues = "deny_int_myNumberProperty_LESS_THEN_4";
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
 
@@ -382,7 +382,7 @@ class HasPropertyValuesPatternTest {
             .setProperty("myDate", "2022-12-08T10:05:57.5946+08:00", Type.STRING);
 
         Tree tree = root.getTree("/content/dam/aapm-test/test-deny");
-        String propertyValues = "deny#date$myDate_EQUALS_2022-12-08T10:05:57.5946+08:00"; // negate deny
+        String propertyValues = "deny_date_myDate_EQUALS_2022-12-08T10:05:57.5946+08:00"; // negate deny
         // rule
         String originalTree = "/content/dam/aapm-test/test-deny";
         PropertyState whatever = null;
@@ -409,7 +409,7 @@ class HasPropertyValuesPatternTest {
         asset.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "toto");
 
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
         PropertyState whatever = null;
 
@@ -436,7 +436,7 @@ class HasPropertyValuesPatternTest {
         asset2.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "toto");
 
         // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow/subfolder";
         PropertyState whatever = null;
 
@@ -462,7 +462,7 @@ class HasPropertyValuesPatternTest {
         notAssetNode.setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_BASE);
 
         // Tree tree = root.getTree("/content/dam/pbop-hackathon-2021/test-allow");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/pbop-hackathon-2021/test-allow/subfolder";
         PropertyState whatever = null;
 
@@ -489,7 +489,7 @@ class HasPropertyValuesPatternTest {
              .setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FILE);
         Tree testedTree = root.getTree("/content/dam/aapm-test/test-allow/Casque_VR_with_tag.jpg/"
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
         PropertyState whatever = null;
 
@@ -518,7 +518,7 @@ class HasPropertyValuesPatternTest {
              .setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FILE);
         Tree testedTree = root.getTree("/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg/"
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
         PropertyState whatever = null;
 
@@ -547,7 +547,7 @@ class HasPropertyValuesPatternTest {
              .setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FILE);
         Tree testedTree = root.getTree("/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg/"
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
         PropertyState whatever = null;
 
@@ -576,7 +576,7 @@ class HasPropertyValuesPatternTest {
              .setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FILE);
         Tree testedTree = root.getTree("/content/dam/aapm-test/test-allow/subfolder/Casque_VR_with_tag.jpg/"
                 + "jcr:content/renditions/cq5dam.thumbnail.140.100.png");
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/aapm-test/test-allow";
         PropertyState whatever = null;
 
@@ -591,11 +591,11 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void equals_returns_false_if_at_least_one_internal_field_is_different() {
-        String propertyValues = "allow#string$myProperty_EQUALS_toto";
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
         String originalTree = "/content/dam/pbop-hackathon-2021/test-allow";
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
-        String propertyValues2 = "deny#string$myProperty_EQUALS_toto";
+        String propertyValues2 = "deny_string_myProperty_EQUALS_toto";
         String originalTree2 = "/content/dam/pbop-hackathon-2021/test-allow";
         HasPropertyValuesPattern hasPropertyValuesPattern2 =
                 new HasPropertyValuesPattern(propertyValues2, originalTree2);
@@ -605,7 +605,7 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void matches_returns_false() {
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
 
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
@@ -617,7 +617,7 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void matches_returns_false_for_whatever_path() {
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
 
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
@@ -629,7 +629,7 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void equals_returns_true_if_same_reference() {
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
@@ -638,7 +638,7 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void equals_returns_false_for_objects_of_different_types() {
-        String propertyValues = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String propertyValues = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         String originalTree = "/content/dam/aapm-test/test-deny";
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
         String nothingSpecial = "test";

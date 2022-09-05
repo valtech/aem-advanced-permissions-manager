@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:crx="http://www.day.com/crx/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:ACL">
+    <allow
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="scene7-config-writer-service"
+        rep:privileges="{Name}[jcr:read,rep:write]"/>
+    <allow1
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="dam-replication-service"
+        rep:privileges="{Name}[jcr:read,jcr:modifyAccessControl,jcr:readAccessControl,rep:write,crx:replicate]"/>
+    <allow2
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="dam-update-service"
+        rep:privileges="{Name}[jcr:versionManagement,jcr:read,rep:write]"/>
+    <allow3
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="webdavbkpservice"
+        rep:privileges="{Name}[jcr:all]"/>
+    <allow4
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="dynamicmedia-asset-service"
+        rep:privileges="{Name}[jcr:read]"/>
+    <allow5
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="dam-users"
+        rep:privileges="{Name}[jcr:versionManagement,rep:write,crx:replicate,jcr:lockManagement]"/>
+    <allow6
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="campaign-remote"
+        rep:privileges="{Name}[crx:replicate]"/>
+    <allow7
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="aapm-content"
+        rep:privileges="{Name}[jcr:versionManagement,jcr:read,jcr:modifyAccessControl,jcr:readAccessControl,rep:write,crx:replicate,jcr:lockManagement]"/>
+</jcr:root>

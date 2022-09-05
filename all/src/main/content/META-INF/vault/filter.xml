@@ -15,5 +15,5 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
-    <filter root="/apps/valtech/aapm"/>
+    <filter root="/apps/aapm"/>
 </workspaceFilter>

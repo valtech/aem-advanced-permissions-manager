@@ -31,7 +31,7 @@ import java.util.Set;
 @Component(service = RestrictionProvider.class, immediate = true)
 public class PropertyValueRestrictionProvider extends AbstractRestrictionProvider {
 
-    private static final String HAS_PROPERTY_VALUES = "hasPropertyValues";
+    private static final String HAS_PROPERTY_VALUES = "rep:hasPropertyValues";
 
     public PropertyValueRestrictionProvider() {
         super(supportedRestrictions());

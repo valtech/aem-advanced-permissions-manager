@@ -386,7 +386,7 @@
         ],
         "rep:restrictions": {
           "jcr:primaryType": "rep:Restrictions",
-          "hasPropertyValues": "allow#string$cq:tags==properties:orientation/portrait"
+          "rep:hasPropertyValues": "allow_string_cq:tags_EQUALS_properties:orientation/portrait"
         }
       }
     },
@@ -1365,7 +1365,7 @@
         ],
         "rep:restrictions": {
           "jcr:primaryType": "rep:Restrictions",
-          "hasPropertyValues": "deny#string$cq:tags==properties:orientation/portrait"
+          "rep:hasPropertyValues": "deny_string_cq:tags_EQUALS_properties:orientation/portrait"
         }
       }
     },
@@ -2072,7 +2072,7 @@
           ],
           "rep:restrictions": {
             "jcr:primaryType": "rep:Restrictions",
-            "hasPropertyValues": "allow#string$cq:tags==properties:orientation/portrait"
+            "rep:hasPropertyValues": "allow_string_cq:tags_EQUALS_properties:orientation/portrait"
           }
         }
       },

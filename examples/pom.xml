@@ -54,28 +54,22 @@
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
                         <embedded>
-                            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
-                            <artifactId>accesscontroltool-package</artifactId>
-                            <classifier>cloud</classifier>
-                            <target>/apps/valtech/aapm-examples/install</target>
-                        </embedded>
-                        <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.apps</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples/install</target>
+                            <target>/apps/aapm-examples/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.content</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples/install</target>
+                            <target>/apps/aapm-examples/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.valtech.aapm</groupId>
                             <artifactId>examples.aapm.ui.config</artifactId>
                             <type>zip</type>
-                            <target>/apps/valtech/aapm-examples/install</target>
+                            <target>/apps/aapm-examples/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
@@ -178,15 +172,6 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
-        <dependency>
-            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
-            <artifactId>accesscontroltool-package</artifactId>
-            <!-- without classifier leave our for on-premise -->
-            <classifier>cloud</classifier>
-            <!-- version should come from parent/dependency management -->
-            <version>3.0.4</version>
-            <type>zip</type>
-        </dependency>
         <dependency>
             <groupId>com.valtech.aapm</groupId>
             <artifactId>examples.aapm.ui.apps</artifactId>

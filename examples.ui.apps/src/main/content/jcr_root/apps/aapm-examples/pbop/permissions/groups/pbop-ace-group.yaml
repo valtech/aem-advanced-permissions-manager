@@ -1,3 +1,6 @@
+# Deprecated as now using repoinit to create users and groups.
+# Please check under examples.ui.config/src/main/content/jcr_root/apps/aapm-examples/osgiconfig/config
+
 - group_config:
   - aapm-content:
     - name: 'PBOP default content user'

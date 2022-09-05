@@ -39,14 +39,8 @@ There are 2 ways to deploy:
 ### Removing following paths
 - /conf/valtech/aapm-examples
 - /content/dam/aapm-test
-- /apps/valtech/aapm
-- /apps/valtech/aapm-examples
-- /apps/netcentric/actool/config
-- /apps/netcentric/actool/config.dev
-- /apps/netcentric/actool/config.stage
-- /apps/netcentric/actool/config.prod
-- /apps/netcentric/actool/install
-- /etc/packages/Netcentric
+- /apps/aapm
+- /apps/aapm-examples
 
 ### Deleting users and groups (in /security/users.html)
 #### Users
@@ -62,8 +56,6 @@ There are 2 ways to deploy:
 - aapm-reader
 - aapm-restricted
 
-Afterwards, you can delete the AAPM and accesscontroltool packages in package manager.
-
 ## Define restriction 
 User with the appropriate rights, can define restrictions.
 
@@ -71,15 +63,19 @@ User with the appropriate rights, can define restrictions.
 
 A restriction is written like this:
 
-- hasPropertyValues: <restriction_type>#<unary_operator><property_type>$<property_name><binary_operator><property_value>
+- rep:hasPropertyValues: <restriction_type>#<unary_operator><property_type>$<property_name><binary_operator><property_value>
 
 where:
-
 - <restriction_type> = "allow" or "deny"
 - <unary_operator> = "!" or "" (negation or not)
 - <property_type> = "int", "date", "string" (*currently only type "string" works well*)
 - <property_name> = the name of the asset node property ("cq:tags" for example)
-- <binary_operator> = "==", ">=", "<=","<",">" (*currently only "==" works well*)
+- <binary_operator> = 
+    - "*_EQUALS*_" 
+    - "*_GREATER_THAN_EQUALS*_"
+    - "*_LESS_THAN_EQUALS*_" 
+    - "*_GREATER_THEN*_" 
+    - "*_LESS_THEN*_" (*currently only "*_EQUALS*_" works well*)
 - <property_value> = the value the property has to be equal to match the restriction
 
 #### Examples
@@ -88,19 +84,19 @@ You can install the aapm.examples package for the following examples.
 
 ##### Example 1
 - Permission type = "*deny*"
-- hasPropertyValues: *deny*#string$cq:tags==properties:orientation/portrait
+- hasPropertyValues: *deny*_string_cq:tags_EQUALS_properties:orientation/portrait
 - For a restriction "R1" defined by the above line applying to a user "UserA", R1 will prevent UserA to access to all
   the assets tagged with orientation/portrait
 
 ##### Example 2
 - Permission type = "*allow*"
 - You can "cancel" the restriction of example 2 in a subfolder by adding following line
-- hasPropertyValues: *allow*#string$cq:tags==properties:orientation/portrait
+- hasPropertyValues: *allow*_string_cq:tags_EQUALS_properties:orientation/portrait
 
 ##### Example 3
 - Permission type = "*deny*"
 - You can use a "negate operator":
-    - hasPropertyValues: *deny*#string$!cq:tags==properties:orientation/portrait
+    - hasPropertyValues: *deny*_string_!cq:tags_EQUALS_properties:orientation/portrait
 - For a restriction "R2" defined by the above line applying to a user "UserA", R2 will prevent UserA to access to all
 the assets not tagged with orientation/portrait
 
@@ -109,8 +105,8 @@ the assets not tagged with orientation/portrait
 ![from permission tab, user can modify or add new restriction](illustrations/aapm-Permission tab.png "Permission tab")
  2- Click "Add ACE" and follow instructions 
 ![user can add new restriction through this tab](illustrations/aapm-add-new-restriction.png "add ace")
-### Restriction through yaml file
-  Yaml file location: apps/aapm/pbop/permissions/groups/pbop-ace-group.yaml
+### Restriction through repoinit file
+  config file location: apps/aapm-examples/osgiconfig/config/org.apache.sling.jcr.repoinit.RepositoryInitializer-aapm.config
 
     # Test 1: with user that has permission to see the all inside test-allow folder
     - aapm-default-reader:
