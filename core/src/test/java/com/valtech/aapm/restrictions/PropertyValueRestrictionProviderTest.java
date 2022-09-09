@@ -38,18 +38,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class PropertyValueRestrictionProviderTest {
 
-
     private RestrictionImpl restriction;
-
-
 
     private static PropertyState createProperty(String name, String value, Type<String> type) {
         return PropertyStates.createProperty(name, value, type);
     }
 
-
     @Test
-    public void getPattern_returns_empty_pattern_restriction_when_no_restriction_on_targeted_path() {
+    void getPattern_returns_empty_pattern_restriction_when_no_restriction_on_targeted_path() {
 
         PropertyValueRestrictionProvider testedProvider = new PropertyValueRestrictionProvider();
         HashSet<Restriction> noRestriction = new HashSet<>();
@@ -60,11 +56,11 @@ class PropertyValueRestrictionProviderTest {
     }
 
     @Test
-    public void getPattern_nominal_case() {
+    void getPattern_nominal_case() {
         Type<String> type = Type.STRING;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";
-        String matchedConditionPropertyValue = "deny#string$cq:tags==properties:orientation/portrait";
+        String matchedConditionPropertyValue = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
         boolean isMandatory = false;
         PropertyState property = createProperty(name, matchedConditionPropertyValue, type);
         restriction = new RestrictionImpl(property, isMandatory);
@@ -74,7 +70,6 @@ class PropertyValueRestrictionProviderTest {
         HasPropertyValuesPattern expectedRestrictionPattern =
                 new HasPropertyValuesPattern(matchedConditionPropertyValue, oakPath);
 
-
         RestrictionPattern computedRestrictionPattern = testedProvider.getPattern(oakPath, restrictions);
 
         assertTrue(computedRestrictionPattern instanceof HasPropertyValuesPattern);
@@ -82,12 +77,12 @@ class PropertyValueRestrictionProviderTest {
     }
 
     @Test
-    public void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one() {
+    void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one() {
         Type<Iterable<String>> type = Type.STRINGS;
         String oakPath = "/my/path";
         String name = "hasPropertyValues";
-        String value1 = "deny#string$cq:tags==properties:orientation/portrait";
-        String value2 = "allow#string$cq:tags==properties:orientation/landscape";
+        String value1 = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String value2 = "allow#string$cq:tags_EQUALS_properties:orientation/landscape";
         List<String> values = new ArrayList<String>();
         values.add(value1);
         values.add(value2);
@@ -102,8 +97,7 @@ class PropertyValueRestrictionProviderTest {
 
         assertEquals(RestrictionPattern.EMPTY, computedRestrictionPattern);
 
-
     }
 
-    // : create Unit tests for "public RestrictionPattern getPattern(String oakPath, Tree tree)"
+    // : create Unit tests for " RestrictionPattern getPattern(String oakPath, Tree tree)"
 }
