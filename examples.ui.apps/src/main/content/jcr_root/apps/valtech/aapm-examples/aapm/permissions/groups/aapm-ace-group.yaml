@@ -1,21 +1,18 @@
-# Deprecated as now using repoinit to create users and groups.
-# Please check under examples.ui.config/src/main/content/jcr_root/apps/aapm-examples/osgiconfig/config
-
 - group_config:
   - aapm-content:
-    - name: 'PBOP default content user'
+    - name: 'AAPM default content user'
       isMemberOf: dam-users
-      path: pbop
+      path: aapm
 
   - aapm-reader:
-    - name: 'PBOP reader '
+    - name: 'AAPM reader '
       isMemberOf:
-      path: pbop
+      path: aapm
 
   - aapm-restricted:
-    - name: 'PBOP restricted '
+    - name: 'AAPM restricted '
       isMemberOf:
-      path: pbop
+      path: aapm
 
 - ace_config:
 
@@ -35,7 +32,7 @@
       actions:
       privileges: jcr:all
       restrictions:
-        hasPropertyValues: allow#string$cq:tags==properties:orientation/portrait
+        hasPropertyValues: allow_string_cq:tags==properties:orientation/portrait
 
   - aapm-restricted:
     - path: /content/dam/aapm-test/test-deny
@@ -43,11 +40,11 @@
       actions:
       privileges: jcr:all
       restrictions:
-        hasPropertyValues: deny#string$cq:tags==properties:orientation/portrait
+        hasPropertyValues: deny_string_cq:tags==properties:orientation/portrait
 
     - path: /content/dam/aapm-test/test-deny/subfolder
       permission: allow
       actions:
       privileges: jcr:all
       restrictions:
-        hasPropertyValues: allow#string$cq:tags==properties:orientation/portrait
+        hasPropertyValues: allow_string_cq:tags==properties:orientation/portrait

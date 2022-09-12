@@ -34,8 +34,8 @@
                     </properties>
                     <filters>
                         <!-- /apps root -->
-                        <filter><root>/apps</root></filter>
-                        <filter><root>/apps/aapm-examples</root></filter>
+                        <filter><root>/apps/valtech</root></filter>
+                        <filter><root>/apps/valtech/aapm-examples</root></filter>
 
                         <!-- Common overlay roots -->
                         <filter><root>/apps/sling</root></filter>

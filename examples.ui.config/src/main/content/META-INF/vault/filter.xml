@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/aapm-examples/osgiconfig"/>
+    <filter root="/apps/valtech/aapm-examples/config"/>
+    <filter root="/apps/valtech/aapm-examples/config.author"/>
+    <filter root="/apps/valtech/aapm-examples/config.publish"/>
 </workspaceFilter>

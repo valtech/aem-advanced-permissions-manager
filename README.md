@@ -39,8 +39,8 @@ There are 2 ways to deploy:
 ### Removing following paths
 - /conf/valtech/aapm-examples
 - /content/dam/aapm-test
-- /apps/aapm
-- /apps/aapm-examples
+- /apps/valtech/aapm
+- /apps/valtech/aapm-examples
 
 ### Deleting users and groups (in /security/users.html)
 #### Users
@@ -145,7 +145,7 @@ the assets not tagged with orientation/portrait
     1 - Login as admin user
     2 - Navigate to /content/dam/aapm-test/test-allow folder
     4 - User should see all assets and sub folder
-    3 - Unpersonnate as utest-aapm-reader (apps/aapm/pbop/permissions/users/pbop-ace-user.yaml)
+    3 - Unpersonnate as utest-aapm-reader (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
     4 - Result: user will only see all assets with the tag properties:orientation/portrait
   ![Login with admin user account, user see all content](illustrations/aapm-admin-to-reader.png "Login with admin user account")
   ![on /test-allow folder, we apply restriction to apply allow permission only if asset has tag protrait](illustrations/aapm-reader.png "Impersonate as utest-aapm-reader")
@@ -154,7 +154,7 @@ the assets not tagged with orientation/portrait
     1 - Login as admin user
     2 - Navigate to /content/dam/aapm-test/test-deny
     3 - User should see all assets and sub folder
-    4 - Unpersonnate as utest-aapm-restricted (apps/aapm/pbop/permissions/users/pbop-ace-user.yaml)
+    4 - Unpersonnate as utest-aapm-restricted (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
     5 - Result: user should see only assets without the tag properties:orientation/portrait in "test-deny" and all asssets in "/subfolder" (because for the group "aapm-restricted" deny access for assets with tag "properties:orientation/portrait" has been overidden by an allow access for "subfolder")
   ![admin user see all content](illustrations/aapm-admin-to-restricted.png "Connect as admin user")
   ![admin user see all content](illustrations/aapm-assets-in-test-deny.png "Display utest-aapm-restricted assets for 'test-deny'")

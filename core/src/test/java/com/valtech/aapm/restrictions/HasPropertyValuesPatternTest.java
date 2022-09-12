@@ -449,7 +449,7 @@ class HasPropertyValuesPatternTest {
 
     @Test
     void matches_returns_false_on_folder_path_when_defined_allow_equality_rule_is_false_for_all_children_of_this_folder() {
-        Tree subfolderContainingAssets = root.getTree("/").addChild("content").addChild("dam").addChild("pbop-hackathon-2021")
+        Tree subfolderContainingAssets = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-hackathon-2021")
                                              .addChild("test-allow").addChild("subfolder");
         subfolderContainingAssets.setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FOLDER);
 
@@ -461,9 +461,9 @@ class HasPropertyValuesPatternTest {
         Tree notAssetNode = subfolderContainingAssets.addChild("notAssetNode");
         notAssetNode.setProperty(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_BASE);
 
-        // Tree tree = root.getTree("/content/dam/pbop-hackathon-2021/test-allow");
+        // Tree tree = root.getTree("/content/dam/aapm-hackathon-2021/test-allow");
         String propertyValues = "allow_string_myProperty_EQUALS_toto";
-        String originalTree = "/content/dam/pbop-hackathon-2021/test-allow/subfolder";
+        String originalTree = "/content/dam/aapm-hackathon-2021/test-allow/subfolder";
         PropertyState whatever = null;
 
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
@@ -592,11 +592,11 @@ class HasPropertyValuesPatternTest {
     @Test
     void equals_returns_false_if_at_least_one_internal_field_is_different() {
         String propertyValues = "allow_string_myProperty_EQUALS_toto";
-        String originalTree = "/content/dam/pbop-hackathon-2021/test-allow";
+        String originalTree = "/content/dam/aapm-hackathon-2021/test-allow";
         HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
 
         String propertyValues2 = "deny_string_myProperty_EQUALS_toto";
-        String originalTree2 = "/content/dam/pbop-hackathon-2021/test-allow";
+        String originalTree2 = "/content/dam/aapm-hackathon-2021/test-allow";
         HasPropertyValuesPattern hasPropertyValuesPattern2 =
                 new HasPropertyValuesPattern(propertyValues2, originalTree2);
 
