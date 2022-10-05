@@ -20,6 +20,7 @@ package com.valtech.aapm.restrictions;
 
 import com.day.cq.dam.api.DamConstants;
 import com.drew.lang.Iterables;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
@@ -38,8 +39,6 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
     private final String originalTree;
     private final String name;
-    private final String values;
-    private final String[] status;
     private final List<String> statusList;
     private final String permissionType;
     private final String propertyType;
@@ -53,14 +52,14 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     HasPropertyValuesPattern(String propertyValues, String originalTree) {
         this.originalTree = originalTree;
 
-        // allow#property=test
-        // allow#date$property=01/10/2021
+        // allow_property=test
+        // allow_date_property=01/10/2021
 
-        permissionType = propertyValues.split("#")[0];
-        String propertyValuesWithoutPermissionType = propertyValues.split("#")[1];
+        permissionType = propertyValues.split("_")[0];
+        String propertyValuesWithoutPermissionType = StringUtils.removeStart(propertyValues, permissionType + "_");
 
-        propertyType = propertyValuesWithoutPermissionType.split("\\$")[0];
-        String propertyValuesWithoutPropertyType = propertyValuesWithoutPermissionType.split("\\$")[1];
+        propertyType = propertyValues.split("_")[1];
+        String propertyValuesWithoutPropertyType = StringUtils.removeStart(propertyValuesWithoutPermissionType, propertyType + "_");
 
         if (propertyValuesWithoutPropertyType.startsWith("!")) {
             negate = true;
@@ -75,8 +74,8 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         }
 
         name = propertyValuesWithoutPropertyType.split(operator)[0];
-        values = propertyValuesWithoutPropertyType.split(operator)[1];
-        status = values.split(",");
+        String values = propertyValuesWithoutPropertyType.split(operator)[1];
+        String[] status = values.split(",");
         statusList = Arrays.asList(status);
     }
 

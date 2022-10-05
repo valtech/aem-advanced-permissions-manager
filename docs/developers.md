@@ -13,9 +13,6 @@ The main parts of the project are:
 
 ## How to build/deploy
 
-#### WARNING : You would maybe need to deploy twice (and even 3 times) the project because some folders and files are not well deployed with Actools
-
-
 To build all the modules run in the project root directory the following command with Maven 3:
 
     mvn clean install

@@ -98,29 +98,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.jackrabbit</groupId>
-                <artifactId>filevault-package-maven-plugin</artifactId>
-                <configuration>
-                    <properties>
-                        <!-- declare the install hook also for cloud to ease local development with the AEM SDK (when installed in the actual cloud service the startup hook is used automatically instead, even with this configuration -->
-                        <installhook.actool.class>biz.netcentric.cq.tools.actool.installhook.AcToolInstallHook</installhook.actool.class>
-                      <!--  <actool.installhook.configFilesPattern.users>/apps/aapm/pbop/permissions/groups.*</actool.installhook.configFilesPattern.users>
-                        <actool.installhook.configFilesPattern.users>/apps/aapm/pbop/permissions/users.*</actool.installhook.configFilesPattern.users>-->
-
-                    </properties>
-                    <!-- package type mixed is required due to the install hook -->
-                    <packageType>mixed</packageType>
-                    <dependencies>
-                        <dependency>
-                            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
-                            <artifactId>accesscontroltool-package</artifactId>
-                            <!-- without classifier leave our for on-premise -->
-                            <classifier>cloud</classifier>
-                        </dependency>
-                    </dependencies>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -152,16 +129,6 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
             <version>1.2.4-1.4.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
-            <artifactId>accesscontroltool-package</artifactId>
-            <!-- without classifier leave our for on-premise -->
-            <classifier>cloud</classifier>
-            <!-- version should come from parent/dependency management -->
-            <type>zip</type>
-            <version>3.0.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

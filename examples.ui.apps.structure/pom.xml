@@ -34,7 +34,6 @@
                     </properties>
                     <filters>
                         <!-- /apps root -->
-                        <filter><root>/apps</root></filter>
                         <filter><root>/apps/valtech</root></filter>
                         <filter><root>/apps/valtech/aapm-examples</root></filter>
 

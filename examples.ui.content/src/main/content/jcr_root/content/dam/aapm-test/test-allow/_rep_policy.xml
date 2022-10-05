@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:crx="http://www.day.com/crx/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:ACL">
+    <deny
+        jcr:primaryType="rep:DenyACE"
+        rep:principalName="aapm-content"
+        rep:privileges="{Name}[jcr:versionManagement,jcr:read,jcr:modifyAccessControl,jcr:readAccessControl,rep:write,crx:replicate,jcr:lockManagement]"/>
+    <allow1
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="aapm-reader"
+        rep:privileges="{Name}[jcr:all]">
+        <rep:restrictions
+            jcr:primaryType="rep:Restrictions"
+            rep:hasPropertyValues="allow_string_cq:tags_EQUALS_properties:orientation/portrait"/>
+    </allow1>
+</jcr:root>

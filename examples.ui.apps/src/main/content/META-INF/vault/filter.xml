@@ -3,5 +3,5 @@
     <filter root="/apps/valtech/aapm-examples/clientlibs"/>
     <filter root="/apps/valtech/aapm-examples/components"/>
     <filter root="/apps/valtech/aapm-examples/i18n"/>
-    <filter root="/apps/valtech/aapm-examples/pbop"/>
+    <filter root="/apps/valtech/aapm-examples/aapm"/>
 </workspaceFilter>

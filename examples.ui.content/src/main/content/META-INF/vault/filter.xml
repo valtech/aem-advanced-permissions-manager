@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/conf/valtech/aapm-examples"/>
-    <filter root="/content/dam/aapm-test"/>
+    <filter root="/content/dam/aapm-test" mode="merge"/>
+    <filter root="/content/dam/rep:policy" mode="merge"/>
 </workspaceFilter>

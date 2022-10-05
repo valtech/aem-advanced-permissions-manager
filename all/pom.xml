@@ -159,15 +159,6 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
-            <artifactId>accesscontroltool-package</artifactId>
-            <!-- without classifier leave our for on-premise -->
-            <classifier>cloud</classifier>
-            <!-- version should come from parent/dependency management -->
-            <version>3.0.4</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
             <groupId>com.valtech.aapm</groupId>
             <artifactId>examples.aapm.ui.apps</artifactId>
             <version>${project.version}</version>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:ACL">
+    <allow
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="aapm-restricted"
+        rep:privileges="{Name}[jcr:all]">
+        <rep:restrictions
+            jcr:primaryType="rep:Restrictions"
+            rep:hasPropertyValues="allow_string_cq:tags_EQUALS_properties:orientation/portrait"/>
+    </allow>
+</jcr:root>

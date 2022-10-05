@@ -59,8 +59,8 @@ class PropertyValueRestrictionProviderTest {
     void getPattern_nominal_case() {
         Type<String> type = Type.STRING;
         String oakPath = "/my/path";
-        String name = "hasPropertyValues";
-        String matchedConditionPropertyValue = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
+        String name = "rep:hasPropertyValues";
+        String matchedConditionPropertyValue = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
         boolean isMandatory = false;
         PropertyState property = createProperty(name, matchedConditionPropertyValue, type);
         restriction = new RestrictionImpl(property, isMandatory);
@@ -80,9 +80,9 @@ class PropertyValueRestrictionProviderTest {
     void getPattern_returns_empty_pattern_restriction_when_special_property_is_a_multiple_one() {
         Type<Iterable<String>> type = Type.STRINGS;
         String oakPath = "/my/path";
-        String name = "hasPropertyValues";
-        String value1 = "deny#string$cq:tags_EQUALS_properties:orientation/portrait";
-        String value2 = "allow#string$cq:tags_EQUALS_properties:orientation/landscape";
+        String name = "rep:hasPropertyValues";
+        String value1 = "deny_string_cq:tags_EQUALS_properties:orientation/portrait";
+        String value2 = "allow_string_cq:tags_EQUALS_properties:orientation/landscape";
         List<String> values = new ArrayList<String>();
         values.add(value1);
         values.add(value2);

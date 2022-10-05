@@ -2,14 +2,14 @@
     - utest-aapm-content:
       - isMemberOf: aapm-content
         password: secret
-        description: Test User for pbop default content group
+        description: Test User for aapm default content group
 
     - utest-aapm-reader:
       - isMemberOf: aapm-content,aapm-reader
         password: secret
-        description: Test User for pbop default reader group
+        description: Test User for aapm default reader group
 
     - utest-aapm-restricted:
       - isMemberOf: aapm-content,aapm-restricted
         password: secret
-        description: Test User for pbop default restricted group
+        description: Test User for aapm default restricted group
