@@ -27,6 +27,8 @@ import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
 import org.apache.sling.jcr.resource.api.JcrResourceConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,6 +39,7 @@ import java.util.Objects;
 
 public class HasPropertyValuesPattern implements RestrictionPattern {
 
+    private static final Logger LOG = LoggerFactory.getLogger(HasPropertyValuesPattern.class);
     private final String originalTree;
     private final String name;
     private final List<String> statusList;
@@ -110,15 +113,23 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     }
 
     private boolean isAsset(Tree tree) {
-        String type = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING);
-        return DamConstants.NT_DAM_ASSET.equalsIgnoreCase(type);
+        PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
+        if (ps != null) {
+            String type = ps.getValue(Type.STRING);
+            return DamConstants.NT_DAM_ASSET.equalsIgnoreCase(type);
+        }
+        return false;
     }
 
     private boolean isFolder(Tree tree) {
-        String type = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING);
-        return JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equalsIgnoreCase(type)
-                || JcrConstants.NT_FOLDER.equalsIgnoreCase(type)
-                || JcrResourceConstants.NT_SLING_FOLDER.equalsIgnoreCase(type);
+        PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
+        if (ps != null) {
+            String type = ps.getValue(Type.STRING);
+            return JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equalsIgnoreCase(type)
+                    || JcrConstants.NT_FOLDER.equalsIgnoreCase(type)
+                    || JcrResourceConstants.NT_SLING_FOLDER.equalsIgnoreCase(type);
+        }
+        return false;
     }
 
     private boolean checkTree(Tree tree) {
@@ -131,7 +142,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean hasMetadataFolder(Tree tree) {
         return tree.hasChild(JcrConstants.JCR_CONTENT)
                 && tree.getChild(JcrConstants.JCR_CONTENT)
-                       .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
+                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
     }
 
     @Override
@@ -150,21 +161,27 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         Tree firstParentOfTypeAsset = getParentAssetNode(firstParentOfTypeFolderOrAsset);
         if (exists(firstParentOfTypeAsset)) // There is a parent asset handled by restriction rule
         {
-            return negate != checkTree(firstParentOfTypeAsset);
+            boolean ret = negate != checkTree(firstParentOfTypeAsset);
+            LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeAsset.getName(), ret);
+            return ret;
         }
 
         if (isFolder(firstParentOfTypeFolderOrAsset)) {
             for (Tree currentTree : firstParentOfTypeFolderOrAsset.getChildren()) {
                 if (checkTree(currentTree)) {
+                    LOG.debug("allowMatch for tree {} Match:: {}", currentTree.getName(), true);
                     return true;
                 }
             }
         }
 
         if (!isFolder(firstParentOfTypeFolderOrAsset)) {
-            return negate != checkTree(firstParentOfTypeFolderOrAsset);
+            boolean ret = negate != checkTree(firstParentOfTypeFolderOrAsset);
+            LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), true);
+            return ret;
         }
 
+        LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), false);
         return false;
     }
 
@@ -202,7 +219,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean hasMetadataAsChild(Tree tree) {
         return tree.hasChild(JcrConstants.JCR_CONTENT)
                 && tree.getChild(JcrConstants.JCR_CONTENT)
-                       .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
+                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
     }
 
     private boolean compareWithOperator(int compareValue) {
@@ -216,14 +233,20 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean isMatch(Tree tree) {
         Tree metadataNode = tree.getChild(JcrConstants.JCR_CONTENT).getChild(DamConstants.ACTIVITY_TYPE_METADATA);
         if (!isRestrictionPropertyExisting(metadataNode)) {
+            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, false);
             return false;
         }
         if (isMetadataPropertyAMultipleValuesOne(metadataNode)) {
-            return doesItMatchForMultipleProperty(metadataNode);
+            boolean ret = doesItMatchForMultipleProperty(metadataNode);
+            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, ret);
+            return ret;
         }
         if (isMetadataPropertyASingleValueOne(metadataNode)) {
-            return doesItMatchForSingleProperty(metadataNode);
+            boolean ret = doesItMatchForSingleProperty(metadataNode);
+            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, ret);
+            return ret;
         }
+        LOG.debug("isMatch metadataNode:: {}, Return:: {} (default)", metadataNode, false);
         return false;
     }
 
@@ -364,15 +387,15 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     @Override
     public int hashCode() {
         return Objects.hash
-                              (
-                                      permissionType,
-                                      negate,
-                                      name,
-                                      statusList,
-                                      originalTree,
-                                      propertyType,
-                                      operator
-                              );
+                (
+                        permissionType,
+                        negate,
+                        name,
+                        statusList,
+                        originalTree,
+                        propertyType,
+                        operator
+                );
     }
 
     private boolean areTheyBothNull(Object o1, Object o2) {
