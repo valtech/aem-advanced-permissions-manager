@@ -14,15 +14,21 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.valtech.aapm</groupId>
     <artifactId>aapm</artifactId>
-    <packaging>pom</packaging>
     <version>1.0.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>AEM Advanced Permissions Manager</name>
     <description>Allow to handle assets permissions thanks to custom restriction rules</description>
     <url>https://github.com/valtech/aem-advanced-permissions-manager</url>
+    <inceptionYear>2021</inceptionYear>
+    <organization>
+        <name>Valtech</name>
+        <url>https://www.valtech.com</url>
+    </organization>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -37,13 +43,14 @@
             <organization>Valtech</organization>
             <organizationUrl>https://www.valtech.com/</organizationUrl>
         </developer>
+        <developer>
+            <id>etienne.lyaet</id>
+            <name>Étienne Lyaët</name>
+            <email>etienne.lyaet@valtech.com</email>
+            <organization>Valtech</organization>
+            <organizationUrl>https://www.valtech.com/</organizationUrl>
+        </developer>
     </developers>
-    <scm>
-        <connection>scm:git:https://github.com/valtech/aem-advanced-permissions-manager.git</connection>
-        <developerConnection>scm:git:git@github.com:valtech/aem-advanced-permissions-manager.git</developerConnection>
-        <url>https://github.com/valtech/aem-advanced-permissions-manager</url>
-      <tag>HEAD</tag>
-  </scm>
 
     <modules>
         <module>all</module>
@@ -54,6 +61,23 @@
         <module>examples.ui.content</module>
         <module>examples</module>
     </modules>
+    <scm>
+        <connection>scm:git:https://github.com/valtech/aem-advanced-permissions-manager.git</connection>
+        <developerConnection>scm:git:git@github.com:valtech/aem-advanced-permissions-manager.git</developerConnection>
+        <url>https://github.com/valtech/aem-advanced-permissions-manager</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <aem.host>localhost</aem.host>
@@ -73,10 +97,94 @@
         <aemanalyser.version>1.1.8</aemanalyser.version>
         <componentGroupName>AEM Advanced Permissions Manager</componentGroupName>
         <aggregate.report.dir>/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
-        
+
         <sonar.organization>valtech-aapm</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
+
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S -->
+    <!-- ====================================================================== -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aem-sdk-api</artifactId>
+                <version>${aem.sdk.api}</version>
+                <scope>provided</scope>
+            </dependency>
+
+
+            <!-- Testing -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.6.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>3.3.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>3.3.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit-addons</groupId>
+                <artifactId>junit-addons</artifactId>
+                <version>1.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.wcm</groupId>
+                <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
+                <version>4.1.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>uk.org.lidalia</groupId>
+                <artifactId>slf4j-test</artifactId>
+                <version>1.0.1</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>https://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>https://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <plugins>
@@ -405,7 +513,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -425,7 +533,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -446,7 +554,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -571,7 +679,9 @@ Bundle-DocURL:
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                        <targetURL>
+                                            http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp
+                                        </targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -645,99 +755,10 @@ Bundle-DocURL:
     </profiles>
 
 
-    <!-- ====================================================================== -->
-    <!-- D E P E N D E N C I E S -->
-    <!-- ====================================================================== -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>aem-sdk-api</artifactId>
-                <version>${aem.sdk.api}</version>
-                <scope>provided</scope>
-            </dependency>
 
 
-            <!-- Testing -->
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>5.6.2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>3.3.3</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-junit-jupiter</artifactId>
-                <version>3.3.3</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>junit-addons</groupId>
-                <artifactId>junit-addons</artifactId>
-                <version>1.4</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.wcm</groupId>
-                <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>4.1.0</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>uk.org.lidalia</groupId>
-                <artifactId>slf4j-test</artifactId>
-                <version>1.0.1</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>adobe</id>
-            <name>Adobe Public Repository</name>
-            <url>https://repo.adobe.com/nexus/content/groups/public/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>central</id>
-            <url>https://repo1.maven.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>adobe</id>
-            <name>Adobe Public Repository</name>
-            <url>https://repo.adobe.com/nexus/content/groups/public/</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
+
 
 </project>
