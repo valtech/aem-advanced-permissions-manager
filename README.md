@@ -45,9 +45,9 @@ There are 2 ways to deploy:
 ### Deleting users and groups (in /security/users.html)
 #### Users
 
-- utest-aapm-content
-- utest-aapm-reader
-- utest-aapm-restricted
+- atest-aapm-content
+- atest-aapm-reader
+- atest-aapm-restricted
 
 
 #### Delete following groups
@@ -63,7 +63,7 @@ User with the appropriate rights, can define restrictions.
 
 A restriction is written like this:
 
-- rep:hasPropertyValues: <restriction_type>#<unary_operator><property_type>$<property_name><binary_operator><property_value>
+- rep:hasPropertyValues: <restriction_type>_<unary_operator><property_type>$<property_name><binary_operator><property_value>
 
 where:
 - <restriction_type> = "allow" or "deny"
@@ -145,20 +145,20 @@ the assets not tagged with orientation/portrait
     1 - Login as admin user
     2 - Navigate to /content/dam/aapm-test/test-allow folder
     4 - User should see all assets and sub folder
-    3 - Unpersonnate as utest-aapm-reader (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
+    3 - Unpersonnate as atest-aapm-reader (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
     4 - Result: user will only see all assets with the tag properties:orientation/portrait
   ![Login with admin user account, user see all content](illustrations/aapm-admin-to-reader.png "Login with admin user account")
-  ![on /test-allow folder, we apply restriction to apply allow permission only if asset has tag protrait](illustrations/aapm-reader.png "Impersonate as utest-aapm-reader")
+  ![on /test-allow folder, we apply restriction to apply allow permission only if asset has tag protrait](illustrations/aapm-reader.png "Impersonate as atest-aapm-reader")
 
     # Test 2
     1 - Login as admin user
     2 - Navigate to /content/dam/aapm-test/test-deny
     3 - User should see all assets and sub folder
-    4 - Unpersonnate as utest-aapm-restricted (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
+    4 - Unpersonnate as atest-aapm-restricted (/apps/valtech/aapm-examples/aapm/permissions/users/aapm-ace-user.yaml)
     5 - Result: user should see only assets without the tag properties:orientation/portrait in "test-deny" and all asssets in "/subfolder" (because for the group "aapm-restricted" deny access for assets with tag "properties:orientation/portrait" has been overidden by an allow access for "subfolder")
   ![admin user see all content](illustrations/aapm-admin-to-restricted.png "Connect as admin user")
-  ![admin user see all content](illustrations/aapm-assets-in-test-deny.png "Display utest-aapm-restricted assets for 'test-deny'")
-  ![admin user see all content](illustrations/aapm-assets-in-subfolder.png "Display utest-aapm-restricted assets for 'subfolder")
+  ![admin user see all content](illustrations/aapm-assets-in-test-deny.png "Display atest-aapm-restricted assets for 'test-deny'")
+  ![admin user see all content](illustrations/aapm-assets-in-subfolder.png "Display atest-aapm-restricted assets for 'subfolder")
 
 
 # Developers
