@@ -421,6 +421,33 @@ class HasPropertyValuesPatternTest {
     }
 
     @Test
+    void matches_returns_true_on_asset_path_when_defined_allow_equality_rule_is_true_on_direct_parent_folder_with_multiple_assets_in_it() {
+        Tree asset = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-allow")
+                .addChild("Casque_VR_with_tag.jpg");
+        asset.setProperty(JcrConstants.JCR_PRIMARYTYPE, DamConstants.NT_DAM_ASSET);
+        asset.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "titi");
+        Tree asset2 = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-allow")
+                .addChild("Casque_VR_with_tag_2.jpg");
+        asset2.setProperty(JcrConstants.JCR_PRIMARYTYPE, DamConstants.NT_DAM_ASSET);
+        asset2.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "toto");
+        Tree asset3 = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test").addChild("test-allow")
+                .addChild("Casque_VR_with_tag_3.jpg");
+        asset3.setProperty(JcrConstants.JCR_PRIMARYTYPE, DamConstants.NT_DAM_ASSET);
+        asset3.addChild(JcrConstants.JCR_CONTENT).addChild(DamConstants.ACTIVITY_TYPE_METADATA).setProperty("myProperty", "titi");
+
+        // Tree tree = root.getTree("/content/dam/aapm-test/test-allow");
+        String propertyValues = "allow_string_myProperty_EQUALS_toto";
+        String originalTree = "/content/dam/aapm-test/test-allow";
+        PropertyState whatever = null;
+
+        HasPropertyValuesPattern hasPropertyValuesPattern = new HasPropertyValuesPattern(propertyValues, originalTree);
+
+        boolean doesItMatch = hasPropertyValuesPattern.matches(asset2, whatever); // We test on the second asset, it should return "true" because myProperty = toto
+
+        assertTrue(doesItMatch);
+    }
+
+    @Test
     void matches_returns_true_on_folder_path_when_defined_allow_equality_rule_is_true_on_at_least_one_child_of_this_folder() {
         Tree subfolderContainingAssets = root.getTree("/").addChild("content").addChild("dam").addChild("aapm-test")
                                              .addChild("test-allow").addChild("subfolder");

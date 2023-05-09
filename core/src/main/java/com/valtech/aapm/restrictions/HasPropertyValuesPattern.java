@@ -48,7 +48,7 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private static final String DENY = "deny";
 
     List<String> operators = List.of("_EQUALS_", "_GREATER_THAN_EQUALS_", "_LESS_THAN_EQUALS_", "_GREATER_THEN_", "_LESS_THEN_");
-    private String operator = "_EQUALS_";
+    private String operator = operators.get(0);
 
     private final boolean negate;
 
@@ -90,28 +90,84 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         }
     }
 
-    private Tree getParentAssetNode(Tree tree) {
-        Tree parent = tree.getParent();
-        if (isTooHighLevelInHierarchy(parent)) {
-            return null;
-        }
-        if (isAsset(parent)) {
-            return parent;
-        }
-        return getParentAssetNode(parent);
-    }
-
-    private boolean isTooHighLevelInHierarchy(Tree parent) {
-        return originalTree.contains(parent.getPath());
-    }
-
+    /**
+     * Return the first node of type Folder or Asset.
+     *
+     * @param tree the tree to test
+     * @return a @{@link Tree} of type Folder or Asset
+     */
     private Tree getFirstParentOfTypeFolderOrAsset(Tree tree) {
-        if (!isFolder(tree) && !isAsset(tree)) {
-            return getFirstParentOfTypeFolderOrAsset(tree.getParent());
+        Tree assetTree = getDamAssetParent(tree);
+        if (assetTree != null) {
+            return assetTree;
+        }
+        Tree folderTree = getFolderParent(tree);
+        if (folderTree != null) {
+            return folderTree;
         }
         return tree;
     }
 
+    /**
+     * Return the tree corresponding to an asset if it exists.
+     * It stops searching at the DAM root level (/content/dam).
+     * Ex:
+     * - /content/dam/test-folder/my-asset.jpg/renditions/thumbnail.jpg will return /content/dam/test-folder/my-asset.jpg
+     * - /content/dam/test-folder/my-asset.jpg will return /content/dam/test-folder/my-asset.jpg
+     * - /content/dam/test-folder will return null
+     *
+     * @param tree The original tree to parse recursively.
+     * @return the first tree that match an asset of null if nothing has been found.
+     */
+    private Tree getDamAssetParent(Tree tree) {
+        if (tree == null) {
+            return null;
+        }
+
+        if (isAsset(tree)) {
+            return tree;
+        }
+
+        Tree parent = tree.getParent();
+        if (parent.getPath().equals("/content/dam")) {
+            return null;
+        }
+        return getDamAssetParent(parent);
+    }
+
+    /**
+     * Return the tree corresponding to a folder if it exists.
+     * It stops searching at the DAM root level (/content/dam).
+     * Ex:
+     * - /content/dam/test-folder/my-asset.jpg/renditions/thumbnail.jpg will return /content/dam/test-folder/my-asset.jpg/renditions
+     * - /content/dam/test-folder/my-asset.jpg will return /content/dam/test-folder
+     * - /content/dam/test-folder will return /content/dam/test-folder
+     *
+     * @param tree The original tree to parse recursively.
+     * @return the first tree that match a folder of null if nothing has been found.
+     */
+    private Tree getFolderParent(Tree tree) {
+        if (tree == null) {
+            return null;
+        }
+
+        if (isFolder(tree)) {
+            return tree;
+        }
+
+        Tree parent = tree.getParent();
+        if (parent.getPath().equals("/content/dam")) {
+            return parent;
+        }
+        return getFolderParent(parent);
+    }
+
+    /**
+     * Return true if the specified tree is an asset (jcr:primaryType = dam:Asset).
+     *
+     * @param tree the tree to check.
+     * @return true if it's an asset, false otherwise.
+     */
     private boolean isAsset(Tree tree) {
         PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
         if (ps != null) {
@@ -121,6 +177,16 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
         return false;
     }
 
+    /**
+     * Return true if the specified tree is a folder.
+     * The folder types can be:
+     * - nt:Folder
+     * - sling:Folder
+     * - sling:OrderedFolder
+     *
+     * @param tree the tree to check.
+     * @return true if it's a folder, false otherwise.
+     */
     private boolean isFolder(Tree tree) {
         PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
         if (ps != null) {
@@ -158,18 +224,17 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
     private boolean allowMatch(Tree tree) {
         Tree firstParentOfTypeFolderOrAsset = getFirstParentOfTypeFolderOrAsset(tree);
-        Tree firstParentOfTypeAsset = getParentAssetNode(firstParentOfTypeFolderOrAsset);
-        if (exists(firstParentOfTypeAsset)) // There is a parent asset handled by restriction rule
+        if (isAsset(firstParentOfTypeFolderOrAsset)) // This is an asset
         {
-            boolean ret = negate != checkTree(firstParentOfTypeAsset);
-            LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeAsset.getName(), ret);
+            boolean ret = negate != checkTree(firstParentOfTypeFolderOrAsset);
+            LOG.debug("allowMatch for tree of type Asset {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), ret);
             return ret;
         }
 
         if (isFolder(firstParentOfTypeFolderOrAsset)) {
             for (Tree currentTree : firstParentOfTypeFolderOrAsset.getChildren()) {
                 if (checkTree(currentTree)) {
-                    LOG.debug("allowMatch for tree {} Match:: {}", currentTree.getName(), true);
+                    LOG.debug("allowMatch for tree of type Folder {} Match:: {}", currentTree.getName(), true);
                     return true;
                 }
             }
@@ -177,16 +242,12 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
 
         if (!isFolder(firstParentOfTypeFolderOrAsset)) {
             boolean ret = negate != checkTree(firstParentOfTypeFolderOrAsset);
-            LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), true);
+            LOG.debug("allowMatch for tree of type !Folder && !Asset {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), true);
             return ret;
         }
 
         LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), false);
         return false;
-    }
-
-    private boolean exists(Tree assetTree) {
-        return assetTree != null;
     }
 
     private boolean isRuleToApplyAnAllow() {
@@ -233,17 +294,17 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean isMatch(Tree tree) {
         Tree metadataNode = tree.getChild(JcrConstants.JCR_CONTENT).getChild(DamConstants.ACTIVITY_TYPE_METADATA);
         if (!isRestrictionPropertyExisting(metadataNode)) {
-            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, false);
+            LOG.debug("isMatch::!isRestrictionPropertyExisting(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, false);
             return false;
         }
         if (isMetadataPropertyAMultipleValuesOne(metadataNode)) {
             boolean ret = doesItMatchForMultipleProperty(metadataNode);
-            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, ret);
+            LOG.debug("isMatch::isMetadataPropertyAMultipleValuesOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, ret);
             return ret;
         }
         if (isMetadataPropertyASingleValueOne(metadataNode)) {
             boolean ret = doesItMatchForSingleProperty(metadataNode);
-            LOG.debug("isMatch metadataNode:: {}, Return:: {}", metadataNode, ret);
+            LOG.debug("isMatch::isMetadataPropertyASingleValueOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, ret);
             return ret;
         }
         LOG.debug("isMatch metadataNode:: {}, Return:: {} (default)", metadataNode, false);
