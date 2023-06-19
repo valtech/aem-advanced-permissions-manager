@@ -294,20 +294,20 @@ public class HasPropertyValuesPattern implements RestrictionPattern {
     private boolean isMatch(Tree tree) {
         Tree metadataNode = tree.getChild(JcrConstants.JCR_CONTENT).getChild(DamConstants.ACTIVITY_TYPE_METADATA);
         if (!isRestrictionPropertyExisting(metadataNode)) {
-            LOG.debug("isMatch::!isRestrictionPropertyExisting(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, false);
+            LOG.debug("isMatch::!isRestrictionPropertyExisting(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), false);
             return false;
         }
         if (isMetadataPropertyAMultipleValuesOne(metadataNode)) {
             boolean ret = doesItMatchForMultipleProperty(metadataNode);
-            LOG.debug("isMatch::isMetadataPropertyAMultipleValuesOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, ret);
+            LOG.debug("isMatch::isMetadataPropertyAMultipleValuesOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), ret);
             return ret;
         }
         if (isMetadataPropertyASingleValueOne(metadataNode)) {
             boolean ret = doesItMatchForSingleProperty(metadataNode);
-            LOG.debug("isMatch::isMetadataPropertyASingleValueOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode, ret);
+            LOG.debug("isMatch::isMetadataPropertyASingleValueOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), ret);
             return ret;
         }
-        LOG.debug("isMatch metadataNode:: {}, Return:: {} (default)", metadataNode, false);
+        LOG.debug("isMatch metadataNode:: {}, Return:: {} (default)", metadataNode.getPath(), false);
         return false;
     }
 
