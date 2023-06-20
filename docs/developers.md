@@ -46,3 +46,10 @@ Sonarqube results can be seen on https://sonarcloud.io/project/overview?id=aapm.
 To test, execute:
 
     mvn clean test
+
+### Release
+
+To release, execute:
+
+    mvn release:prepare
+    mvn release:perform -P release-sign-artifacts
