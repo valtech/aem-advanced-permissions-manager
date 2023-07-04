@@ -59,7 +59,7 @@ There are 2 ways to deploy:
 ## Define restriction 
 User with the appropriate rights, can define restrictions.
 
-### Build a restriction
+### Build a rep:hasPropertyValues restriction
 
 A restriction is written like this:
 
@@ -159,6 +159,33 @@ the assets not tagged with orientation/portrait
   ![admin user see all content](illustrations/aapm-admin-to-restricted.png "Connect as admin user")
   ![admin user see all content](illustrations/aapm-assets-in-test-deny.png "Display atest-aapm-restricted assets for 'test-deny'")
   ![admin user see all content](illustrations/aapm-assets-in-subfolder.png "Display atest-aapm-restricted assets for 'subfolder")
+
+### Build a rep:subFolder restriction
+
+A restriction is written like this:
+
+- rep:subFolder: <restriction_type>_<unary_operator><binary_operator><folder_relative_level>
+
+where:
+- <restriction_type> = "allow" or "deny"
+- <unary_operator> = "!" or "" (negation or not)
+- <binary_operator> =
+  - "*_EQUALS*_"
+  - "*_GREATER_THAN_EQUALS*_"
+  - "*_LESS_THAN_EQUALS*_"
+  - "*_GREATER_THEN*_"
+  - "*_LESS_THEN*_" (*currently only "*_EQUALS*_" works well*)
+- <folder_relative_level> = The level of the folder where the restriction need to be applied relative to the folder where the ACE is set
+
+#### Examples
+
+##### Example 1
+- Path: /content/dam/test
+- Privilege: [rep:write]
+- Permission Type: "*allow*"
+- Restrictions: rep:subFolder: *allow_GREATER_THAN_EQUALS_2*
+
+All items under */content/dam/test/\*\*/\*\*/* will have *rep:write* access.
 
 
 # Developers
