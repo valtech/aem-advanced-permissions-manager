@@ -49,7 +49,7 @@ public class SubFolderRestrictionProvider extends AbstractRestrictionProvider {
         if (oakPath != null) {
             PropertyState property = tree.getProperty(REP_SUB_FOLDER);
             if (property != null) {
-                return HasPropertyValuesPattern.create(property, oakPath);
+                return SubFolderPattern.create(property, oakPath);
             }
         }
         return RestrictionPattern.EMPTY;
@@ -61,7 +61,7 @@ public class SubFolderRestrictionProvider extends AbstractRestrictionProvider {
             for (Restriction r : restrictions) {
                 String name = r.getDefinition().getName();
                 if (REP_SUB_FOLDER.equals(name)) {
-                    return HasPropertyValuesPattern.create(r.getProperty(), oakPath);
+                    return SubFolderPattern.create(r.getProperty(), oakPath);
                 }
             }
         }

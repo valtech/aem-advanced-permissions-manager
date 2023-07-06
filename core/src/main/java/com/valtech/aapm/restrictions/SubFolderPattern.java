@@ -18,9 +18,7 @@
  */
 package com.valtech.aapm.restrictions;
 
-import com.adobe.xfa.Int;
 import com.day.cq.dam.api.DamConstants;
-import com.drew.lang.Iterables;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
@@ -31,35 +29,26 @@ import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class SubFolderPattern implements RestrictionPattern {
 
     private static final Logger LOG = LoggerFactory.getLogger(SubFolderPattern.class);
+    public static final String CONTENT_DAM = "/content/dam";
     private final String originalTree;
     private final Integer level;
     private final String permissionType;
     private static final String DENY = "deny";
-
     List<String> operators = List.of("_EQUALS_", "_GREATER_THAN_EQUALS_", "_LESS_THAN_EQUALS_", "_GREATER_THEN_", "_LESS_THEN_");
     private String operator = operators.get(0);
-
     private final boolean negate;
 
+
     SubFolderPattern(String propertyValues, String originalTree) {
-        this.originalTree = originalTree;
-
-        // allow_property=test
-        // allow_date_property=01/10/2021
-
+        this.originalTree = originalTree; // The originalTree here is where the permission is set
         permissionType = propertyValues.split("_")[0];
         String propertyValuesWithoutPermissionType = StringUtils.removeStart(propertyValues, permissionType + "_");
-
         if (propertyValuesWithoutPermissionType.startsWith("!")) {
             negate = true;
         } else {
@@ -71,7 +60,6 @@ public class SubFolderPattern implements RestrictionPattern {
                 break;
             }
         }
-
         String sLevel = propertyValuesWithoutPermissionType.split(operator)[1];
         level = Integer.valueOf(sLevel);
     }
@@ -123,7 +111,7 @@ public class SubFolderPattern implements RestrictionPattern {
         }
 
         Tree parent = tree.getParent();
-        if (parent.getPath().equals("/content/dam")) {
+        if (parent.getPath().equals(CONTENT_DAM)) {
             return null;
         }
         return getDamAssetParent(parent);
@@ -150,7 +138,7 @@ public class SubFolderPattern implements RestrictionPattern {
         }
 
         Tree parent = tree.getParent();
-        if (parent.getPath().equals("/content/dam")) {
+        if (parent.getPath().equals(CONTENT_DAM)) {
             return parent;
         }
         return getFolderParent(parent);
@@ -194,7 +182,7 @@ public class SubFolderPattern implements RestrictionPattern {
 
     private boolean checkTree(Tree tree) {
         if (hasMetadataFolder(tree)) {
-            return isMatch(tree);
+            return isMatch(tree); //TODO This is the basic one, investigate for the other descendant cases
         }
         return false;
     }
@@ -211,46 +199,10 @@ public class SubFolderPattern implements RestrictionPattern {
             return denyMatch(tree);
         }
         if (isRuleToApplyAnAllow()) {
-            return allowMatch(tree);
+            return isMatch(tree);
         }
         return false;
     }
-
-    private boolean denyMatch(Tree tree) {
-        // configured property name found on underlying jcr:content node has precedence
-        if (hasMetadataAsChild(tree)) {
-            boolean match = isMatch(tree);
-            return negate != match;
-        }
-        return false;
-    }
-
-    private boolean hasMetadataAsChild(Tree tree) {
-        return tree.hasChild(JcrConstants.JCR_CONTENT)
-                && tree.getChild(JcrConstants.JCR_CONTENT)
-                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
-    }
-
-    private boolean isMatch(Tree tree) {
-        Tree metadataNode = tree.getChild(JcrConstants.JCR_CONTENT).getChild(DamConstants.ACTIVITY_TYPE_METADATA);
-        if (!isRestrictionPropertyExisting(metadataNode)) {
-            LOG.debug("isMatch::!isRestrictionPropertyExisting(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), false);
-            return false;
-        }
-        if (isMetadataPropertyAMultipleValuesOne(metadataNode)) {
-            boolean ret = doesItMatchForMultipleProperty(metadataNode);
-            LOG.debug("isMatch::isMetadataPropertyAMultipleValuesOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), ret);
-            return ret;
-        }
-        if (isMetadataPropertyASingleValueOne(metadataNode)) {
-            boolean ret = doesItMatchForSingleProperty(metadataNode);
-            LOG.debug("isMatch::isMetadataPropertyASingleValueOne(metadataNode) metadataNode:: {}, Return:: {}", metadataNode.getPath(), ret);
-            return ret;
-        }
-        LOG.debug("isMatch metadataNode:: {}, Return:: {} (default)", metadataNode.getPath(), false);
-        return false;
-    }
-
 
     private boolean allowMatch(Tree tree) {
         Tree firstParentOfTypeFolderOrAsset = getFirstParentOfTypeFolderOrAsset(tree);
@@ -298,6 +250,47 @@ public class SubFolderPattern implements RestrictionPattern {
         return false;
     }
 
+    private boolean denyMatch(Tree tree) {
+        // configured property name found on underlying jcr:content node has precedence
+        if (hasMetadataAsChild(tree)) {
+            boolean match = isMatch(tree);
+            return negate != match;
+        }
+        return false;
+    }
+
+    private boolean hasMetadataAsChild(Tree tree) {
+        return tree.hasChild(JcrConstants.JCR_CONTENT)
+                && tree.getChild(JcrConstants.JCR_CONTENT)
+                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
+    }
+
+    private boolean compareWithOperator(int compareValue) {
+        return ("_EQUALS_".equals(operator) && compareValue == 0) ||
+                ("_LESS_THAN_EQUALS_".equals(operator) && (compareValue <= 0)) ||
+                ("_GREATER_THAN_EQUALS_".equals(operator) && (compareValue >= 0)) ||
+                ("_GREATER_THEN_".equals(operator) && (compareValue > 0)) ||
+                ("_LESS_THEN_".equals(operator) && (compareValue < 0));
+    }
+
+    private boolean isMatch(Tree tree) {
+        LOG.debug("isMatch the level");
+        return isRequiredLevel(originalTree,level,tree);
+
+    }
+
+    private boolean isRequiredLevel(String OkPath, int level, Tree triggeredTree){
+        // Traverse the originalTree up to the specified level
+        for (int i = 0; i < level; i++) {
+            if (OkPath == null || triggeredTree ==null) {
+                return false; // originalTree does not have enough levels, return false
+            }
+            triggeredTree = triggeredTree.getParent();
+        }
+        // Check if the triggeredPath is a child of the originalPath
+        return OkPath.equals(triggeredTree.getPath());
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -316,7 +309,6 @@ public class SubFolderPattern implements RestrictionPattern {
         // Compare the data members and return accordingly
         return arePermissionTypesEqual(c) &&
                 areNegateOperatorsEqual(c) &&
-                areLevelEqual(c) &&
                 areOriginalTreesEqual(c) &&
                 areOperatorsEqual(c);
     }
@@ -329,9 +321,6 @@ public class SubFolderPattern implements RestrictionPattern {
         return areTheyBothNull(originalTree, c.originalTree) || (originalTree != null && originalTree.equals(c.originalTree));
     }
 
-    private boolean areLevelEqual(SubFolderPattern c) {
-        return areTheyBothNull(level, c.level) || (level != null && level.equals(c.level));
-    }
 
     private boolean areNegateOperatorsEqual(SubFolderPattern c) {
         return areTheyBothNull(negate, c.negate) || negate == c.negate;
@@ -348,8 +337,7 @@ public class SubFolderPattern implements RestrictionPattern {
                         permissionType,
                         negate,
                         originalTree,
-                        operator,
-                        level
+                        operator
                 );
     }
 
