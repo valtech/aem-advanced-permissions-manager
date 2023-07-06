@@ -18,37 +18,29 @@
  */
 package com.valtech.aapm.restrictions;
 
-import com.day.cq.dam.api.DamConstants;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
-import org.apache.sling.jcr.resource.api.JcrResourceConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class SubFolderPattern implements RestrictionPattern {
-
-    private static final Logger LOG = LoggerFactory.getLogger(SubFolderPattern.class);
-    public static final String CONTENT_DAM = "/content/dam";
     private final String originalTree;
     private final Integer level;
     private final String permissionType;
     private static final String DENY = "deny";
-    List<String> operators = List.of("_EQUALS_", "_GREATER_THAN_EQUALS_", "_LESS_THAN_EQUALS_", "_GREATER_THEN_", "_LESS_THEN_");
+    List<String> operators = List.of(Operators.EQUALS.getValue(), Operators.GREATER_THAN_EQUALS.getValue(),
+            Operators.LESS_THAN_EQUALS.getValue(), Operators.GREATER_THEN.getValue(), Operators.LESS_THEN.getValue());
     private String operator = operators.get(0);
     private final boolean negate;
 
-
     SubFolderPattern(String propertyValues, String originalTree) {
-        this.originalTree = originalTree; // The originalTree here is where the permission is set
+        this.originalTree = originalTree;
         permissionType = propertyValues.split("_")[0];
-        String propertyValuesWithoutPermissionType = StringUtils.removeStart(propertyValues, permissionType + "_");
+        String propertyValuesWithoutPermissionType = StringUtils.removeStart(propertyValues, permissionType);
         if (propertyValuesWithoutPermissionType.startsWith("!")) {
             negate = true;
         } else {
@@ -57,7 +49,6 @@ public class SubFolderPattern implements RestrictionPattern {
         for (int i = 0; i < operators.size(); i++) {
             if (propertyValuesWithoutPermissionType.contains(operators.get(i))) {
                 operator = operators.get(i);
-                break;
             }
         }
         String sLevel = propertyValuesWithoutPermissionType.split(operator)[1];
@@ -72,127 +63,6 @@ public class SubFolderPattern implements RestrictionPattern {
         }
     }
 
-    /**
-     * Return the first node of type Folder or Asset.
-     *
-     * @param tree the tree to test
-     * @return a @{@link Tree} of type Folder or Asset
-     */
-    private Tree getFirstParentOfTypeFolderOrAsset(Tree tree) {
-        Tree assetTree = getDamAssetParent(tree);
-        if (assetTree != null) {
-            return assetTree;
-        }
-        Tree folderTree = getFolderParent(tree);
-        if (folderTree != null) {
-            return folderTree;
-        }
-        return tree;
-    }
-
-    /**
-     * Return the tree corresponding to an asset if it exists.
-     * It stops searching at the DAM root level (/content/dam).
-     * Ex:
-     * - /content/dam/test-folder/my-asset.jpg/renditions/thumbnail.jpg will return /content/dam/test-folder/my-asset.jpg
-     * - /content/dam/test-folder/my-asset.jpg will return /content/dam/test-folder/my-asset.jpg
-     * - /content/dam/test-folder will return null
-     *
-     * @param tree The original tree to parse recursively.
-     * @return the first tree that match an asset of null if nothing has been found.
-     */
-    private Tree getDamAssetParent(Tree tree) {
-        if (tree == null) {
-            return null;
-        }
-
-        if (isAsset(tree)) {
-            return tree;
-        }
-
-        Tree parent = tree.getParent();
-        if (parent.getPath().equals(CONTENT_DAM)) {
-            return null;
-        }
-        return getDamAssetParent(parent);
-    }
-
-    /**
-     * Return the tree corresponding to a folder if it exists.
-     * It stops searching at the DAM root level (/content/dam).
-     * Ex:
-     * - /content/dam/test-folder/my-asset.jpg/renditions/thumbnail.jpg will return /content/dam/test-folder/my-asset.jpg/renditions
-     * - /content/dam/test-folder/my-asset.jpg will return /content/dam/test-folder
-     * - /content/dam/test-folder will return /content/dam/test-folder
-     *
-     * @param tree The original tree to parse recursively.
-     * @return the first tree that match a folder of null if nothing has been found.
-     */
-    private Tree getFolderParent(Tree tree) {
-        if (tree == null) {
-            return null;
-        }
-
-        if (isFolder(tree)) {
-            return tree;
-        }
-
-        Tree parent = tree.getParent();
-        if (parent.getPath().equals(CONTENT_DAM)) {
-            return parent;
-        }
-        return getFolderParent(parent);
-    }
-
-    /**
-     * Return true if the specified tree is an asset (jcr:primaryType = dam:Asset).
-     *
-     * @param tree the tree to check.
-     * @return true if it's an asset, false otherwise.
-     */
-    private boolean isAsset(Tree tree) {
-        PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
-        if (ps != null) {
-            String type = ps.getValue(Type.STRING);
-            return DamConstants.NT_DAM_ASSET.equalsIgnoreCase(type);
-        }
-        return false;
-    }
-
-    /**
-     * Return true if the specified tree is a folder.
-     * The folder types can be:
-     * - nt:Folder
-     * - sling:Folder
-     * - sling:OrderedFolder
-     *
-     * @param tree the tree to check.
-     * @return true if it's a folder, false otherwise.
-     */
-    private boolean isFolder(Tree tree) {
-        PropertyState ps = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE);
-        if (ps != null) {
-            String type = ps.getValue(Type.STRING);
-            return JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equalsIgnoreCase(type)
-                    || JcrConstants.NT_FOLDER.equalsIgnoreCase(type)
-                    || JcrResourceConstants.NT_SLING_FOLDER.equalsIgnoreCase(type);
-        }
-        return false;
-    }
-
-    private boolean checkTree(Tree tree) {
-        if (hasMetadataFolder(tree)) {
-            return isMatch(tree); //TODO This is the basic one, investigate for the other descendant cases
-        }
-        return false;
-    }
-
-    private boolean hasMetadataFolder(Tree tree) {
-        return tree.hasChild(JcrConstants.JCR_CONTENT)
-                && tree.getChild(JcrConstants.JCR_CONTENT)
-                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
-    }
-
     @Override
     public boolean matches(Tree tree, PropertyState propertyState) {
         if (isRuleToApplyADeny()) {
@@ -204,33 +74,7 @@ public class SubFolderPattern implements RestrictionPattern {
         return false;
     }
 
-    private boolean allowMatch(Tree tree) {
-        Tree firstParentOfTypeFolderOrAsset = getFirstParentOfTypeFolderOrAsset(tree);
-        if (isAsset(firstParentOfTypeFolderOrAsset)) // This is an asset
-        {
-            boolean ret = negate != checkTree(firstParentOfTypeFolderOrAsset);
-            LOG.debug("allowMatch for tree of type Asset {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), ret);
-            return ret;
-        }
 
-        if (isFolder(firstParentOfTypeFolderOrAsset)) {
-            for (Tree currentTree : firstParentOfTypeFolderOrAsset.getChildren()) {
-                if (checkTree(currentTree)) {
-                    LOG.debug("allowMatch for tree of type Folder {} Match:: {}", currentTree.getName(), true);
-                    return true;
-                }
-            }
-        }
-
-        if (!isFolder(firstParentOfTypeFolderOrAsset)) {
-            boolean ret = negate != checkTree(firstParentOfTypeFolderOrAsset);
-            LOG.debug("allowMatch for tree of type !Folder && !Asset {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), true);
-            return ret;
-        }
-
-        LOG.debug("allowMatch for tree {} Match:: {}", firstParentOfTypeFolderOrAsset.getName(), false);
-        return false;
-    }
 
     private boolean isRuleToApplyAnAllow() {
         return !isRuleToApplyADeny();
@@ -251,97 +95,84 @@ public class SubFolderPattern implements RestrictionPattern {
     }
 
     private boolean denyMatch(Tree tree) {
-        // configured property name found on underlying jcr:content node has precedence
-        if (hasMetadataAsChild(tree)) {
-            boolean match = isMatch(tree);
-            return negate != match;
-        }
-        return false;
-    }
-
-    private boolean hasMetadataAsChild(Tree tree) {
-        return tree.hasChild(JcrConstants.JCR_CONTENT)
-                && tree.getChild(JcrConstants.JCR_CONTENT)
-                .hasChild(DamConstants.ACTIVITY_TYPE_METADATA);
-    }
-
-    private boolean compareWithOperator(int compareValue) {
-        return ("_EQUALS_".equals(operator) && compareValue == 0) ||
-                ("_LESS_THAN_EQUALS_".equals(operator) && (compareValue <= 0)) ||
-                ("_GREATER_THAN_EQUALS_".equals(operator) && (compareValue >= 0)) ||
-                ("_GREATER_THEN_".equals(operator) && (compareValue > 0)) ||
-                ("_LESS_THEN_".equals(operator) && (compareValue < 0));
+        boolean match = isMatch(tree);
+        return negate != match;
     }
 
     private boolean isMatch(Tree tree) {
-        LOG.debug("isMatch the level");
-        return isRequiredLevel(originalTree,level,tree);
-
+        return isRequiredLevel(originalTree,level,tree,operator);
     }
 
-    private boolean isRequiredLevel(String OkPath, int level, Tree triggeredTree){
-        // Traverse the originalTree up to the specified level
-        for (int i = 0; i < level; i++) {
-            if (OkPath == null || triggeredTree ==null) {
-                return false; // originalTree does not have enough levels, return false
-            }
-            triggeredTree = triggeredTree.getParent();
-        }
-        // Check if the triggeredPath is a child of the originalPath
-        return OkPath.equals(triggeredTree.getPath());
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-
-        // If the object is compared with itself then return true
-        if (o == this) {
-            return true;
-        }
-
-        if (!(o instanceof SubFolderPattern)) {
+    /**
+     * isRequiredLevel Check either the oakPath is the requested parent according to the given operator
+     *
+     * @param oakPath
+     * @param level
+     * @param triggeredTree
+     * @param operator
+     * @return
+     */
+    public boolean isRequiredLevel(String oakPath, int level, Tree triggeredTree, String operator) {
+        if (oakPath == null || triggeredTree == null || level < 0) {
             return false;
         }
-
-        SubFolderPattern c = (SubFolderPattern) o;
-
-        // Compare the data members and return accordingly
-        return arePermissionTypesEqual(c) &&
-                areNegateOperatorsEqual(c) &&
-                areOriginalTreesEqual(c) &&
-                areOperatorsEqual(c);
+        long descentLevel = -1;
+        // Check if the operator requires the descent level to be calculated
+        if (operator.equals(Operators.EQUALS.getValue()) || operator.equals(Operators.GREATER_THAN_EQUALS.getValue())
+                || operator.equals(Operators.GREATER_THEN.getValue()) || operator.equals(Operators.LESS_THAN_EQUALS.getValue())
+                || operator.equals(Operators.LESS_THEN.getValue())) {
+            descentLevel = countDescentLevel(oakPath, triggeredTree.getPath());
+        }
+        // Evaluate the condition based on the operator and level values
+        switch (operator) {
+            case "_EQUALS_":
+                return descentLevel == level;
+            case "_GREATER_THAN_EQUALS_":
+                return descentLevel >= level;
+            case "_GREATER_THEN_":
+                return descentLevel > level;
+            case "_LESS_THAN_EQUALS_":
+                return descentLevel > 0 && descentLevel <= level;
+            case "_LESS_THEN_":
+                return descentLevel > 0 && descentLevel < level;
+            default:
+                throw new IllegalArgumentException("Invalid operator: " + operator);
+        }
     }
 
-    private boolean areOperatorsEqual(SubFolderPattern c) {
-        return areTheyBothNull(operator, c.operator) || (operator != null && operator.equals(c.operator));
+
+    /**
+     * isTriggeredPathADescendant : Check if oakPath can be the parent of triggeredPath
+     *
+     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png ==> true
+     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/private/test.png ==> false
+     *
+     * @param oakPath
+     * @param triggeredPath
+     * @return
+     */
+    public boolean isTriggeredPathADescendant(String oakPath, String triggeredPath){
+        return triggeredPath.startsWith(oakPath);
     }
 
-    private boolean areOriginalTreesEqual(SubFolderPattern c) {
-        return areTheyBothNull(originalTree, c.originalTree) || (originalTree != null && originalTree.equals(c.originalTree));
-    }
+    /**
+     *  countDescentLevel : Count the level of descent for a given child
+     *
+     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png ==> 1
+     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/parent1/parent2/test.png ==> 3
+     *
+     * @param oakPath
+     * @param triggeredPath
+     * @return
+     */
 
-
-    private boolean areNegateOperatorsEqual(SubFolderPattern c) {
-        return areTheyBothNull(negate, c.negate) || negate == c.negate;
-    }
-
-    private boolean arePermissionTypesEqual(SubFolderPattern c) {
-        return areTheyBothNull(permissionType, c.permissionType) || (permissionType != null && permissionType.equals(c.permissionType));
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash
-                (
-                        permissionType,
-                        negate,
-                        originalTree,
-                        operator
-                );
-    }
-
-    private boolean areTheyBothNull(Object o1, Object o2) {
-        return o1 == null && o2 == null;
+    public long countDescentLevel(String oakPath, String triggeredPath) {
+        if (isTriggeredPathADescendant(oakPath, triggeredPath)) {
+            return  IntStream.range(oakPath.length(), triggeredPath.length())
+                    .filter(i -> triggeredPath.charAt(i) == '/')
+                    .count();
+        } else {
+            return -1L;
+        }
     }
 }
