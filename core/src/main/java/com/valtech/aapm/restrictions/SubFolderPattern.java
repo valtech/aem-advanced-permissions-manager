@@ -144,8 +144,8 @@ public class SubFolderPattern implements RestrictionPattern {
     /**
      * isTriggeredPathADescendant : Check if oakPath can be the parent of triggeredPath
      *
-     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png ==> true
-     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/private/test.png ==> false
+     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png must return  true
+     * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/private/test.png must return false
      *
      * @param oakPath
      * @param triggeredPath
@@ -158,8 +158,8 @@ public class SubFolderPattern implements RestrictionPattern {
     /**
      *  countDescentLevel : Count the level of descent for a given child
      *
-     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png ==> 1
-     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/parent1/parent2/test.png ==> 3
+     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/test.png must return 1
+     *   * Example :  oakPath = /content/dam/public and triggeredPath = /content/dam/public/parent1/parent2/test.png must return 3
      *
      * @param oakPath
      * @param triggeredPath
